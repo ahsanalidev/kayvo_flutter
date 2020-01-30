@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:kayvo_flutter/screens/welcome.dart';
 
+import 'utilities/styles.dart';
+
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
@@ -10,12 +12,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
-      theme: ThemeData(
-        //  primarySwatch: C,
-        backgroundColor: Colors.white,
-        accentColor: Color(0xffEB4A56),
-      ),
-      home: Welcome(),
+      theme: kTheme,
+      home: MyHomePage(title: 'Flutter Demo Home Page'),
     );
   }
 }
