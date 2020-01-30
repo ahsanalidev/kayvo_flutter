@@ -14,6 +14,7 @@ final ThemeData kTheme = _buildmyTheme();
 ThemeData _buildmyTheme() {
   final ThemeData base = ThemeData.light();
   return base.copyWith(
+    primaryColor: AppColors.kWhite,
     backgroundColor: AppColors.kWhite,
     accentColor: AppColors.kRed,
     scaffoldBackgroundColor: AppColors.kWhite,
