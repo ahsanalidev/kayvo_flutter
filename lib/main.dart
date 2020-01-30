@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'utilities/styles.dart';
+
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
@@ -8,11 +10,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.white,
-        backgroundColor: Colors.white,
-        accentColor: Color(0xffEB4A56),
-      ),
+      theme: kTheme,
       home: MyHomePage(title: 'Flutter Demo Home Page'),
     );
   }
