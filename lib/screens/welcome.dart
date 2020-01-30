@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class Welcome extends StatelessWidget {
   const Welcome({Key key}) : super(key: key);
@@ -11,7 +12,9 @@ class Welcome extends StatelessWidget {
           SliverFillRemaining(
             hasScrollBody: false,
             child: Column(
-              children: <Widget>[],
+              children: <Widget>[
+                SvgPicture.asset('assets/logo.svg'),
+              ],
             ),
           )
         ],
