@@ -2,9 +2,9 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:kayvo_flutter/utilities/styles.dart';
-import 'package:search_app_bar/search_app_bar.dart';
-import 'package:kayvo_flutter/trash/trash.dart';
-import 'package:search_widget/search_widget.dart';
+// import 'package:search_app_bar/search_app_bar.dart';
+
+// import 'package:search_widget/search_widget.dart';
 
 class ChatList extends StatelessWidget {
   const ChatList({Key key}) : super(key: key);
