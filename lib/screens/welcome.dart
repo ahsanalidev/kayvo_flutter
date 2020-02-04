@@ -16,25 +16,51 @@ class Welcome extends StatelessWidget {
             hasScrollBody: false,
             child: Column(
               children: <Widget>[
+                SizedBox(
+                  height: MediaQuery.of(context).size.height * 0.08128,
+                ),
                 SvgPicture.asset(
                   'assets/logo.svg',
-                  color: AppColors.red,
+                  color: AppColors.kRed,
+                  width: MediaQuery.of(context).size.height * 0.1137,
+                  height: MediaQuery.of(context).size.height * 0.0712,
                 ),
-                Text("Welcome to Kayvo"),
+                SizedBox(
+                  height: MediaQuery.of(context).size.height * 0.033,
+                ),
                 Text(
-                    "Simple Secure and Instant end to end translated messaging"),
-                Image.asset("assets/welcome.png"),
+                  "Welcome to Kayvo",
+                  style: Theme.of(context).textTheme.title,
+                ),
+                SizedBox(
+                  height: MediaQuery.of(context).size.height * 0.04,
+                ),
+                Text(
+                  "Simple Secure and Instant end to end \n translated messaging",
+                  style: Theme.of(context).textTheme.body1,
+                  textAlign: TextAlign.center,
+                ),
+                Image.asset(
+                  "assets/welcome.png",
+                  width: MediaQuery.of(context).size.width * 0.693,
+                  height: MediaQuery.of(context).size.height * 0.320,
+                ),
                 RichText(
+                  textAlign: TextAlign.center,
                   text: TextSpan(
                     text: 'Accept the',
-                    style: TextStyle(color: Colors.black),
+                    style: Theme.of(context).textTheme.subtitle,
                     children: <TextSpan>[
                       TextSpan(
                           text: 'Kayvo Terms of Service and Privacy Policy',
-                          style: TextStyle(color: AppColors.red)),
+                          style: Theme.of(context)
+                              .textTheme
+                              .subtitle
+                              .copyWith(color: AppColors.kRed)),
                       TextSpan(
-                          text: 'tap below to agree and continue',
-                          style: TextStyle(color: Colors.black)),
+                        text: '\n tap below to agree and continue',
+                        style: Theme.of(context).textTheme.subtitle,
+                      )
                     ],
                   ),
                 ),

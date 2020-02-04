@@ -9,7 +9,7 @@ class Button extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 24.0),
       child: FlatButton(
-        color: AppColors.red,
+        color: AppColors.kRed,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:kayvo_flutter/screens/numberVerificationOne.dart';
 import 'package:kayvo_flutter/screens/welcome.dart';
 
 import 'utilities/styles.dart';
@@ -13,7 +14,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: kTheme,
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
+      home: NumberVerificationOne(),
     );
   }
 }
