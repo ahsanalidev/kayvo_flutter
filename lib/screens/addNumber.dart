@@ -23,7 +23,7 @@ class AddNumber extends StatelessWidget {
         floatingActionButton: FloatingActionButton(
           child: Icon(Icons.arrow_forward),
           onPressed: () {
-            Navigator.pushNamed(context, '/navBar');
+            Navigator.pushNamed(context, '/verifyNumber');
           },
         ),
         body: ListView(
@@ -47,7 +47,7 @@ class AddNumber extends StatelessWidget {
                     padding: const EdgeInsets.symmetric(horizontal: 24.0),
                     child: Text(
                       "Select your country then enter your phone number below",
-                      style: Theme.of(context).textTheme.subhead,
+                      style: Theme.of(context).textTheme.body1,
                     ),
                   ),
                 ),
@@ -66,11 +66,15 @@ class AddNumber extends StatelessWidget {
                       formatInput: true,
                       inputDecoration: InputDecoration(
                         labelText: "Phone number",
-                        labelStyle:
-                            TextStyle(color: AppColors.kGrey.withOpacity(0.75)),
+                        labelStyle: Theme.of(context)
+                            .textTheme
+                            .body1
+                            .copyWith(color: AppColors.kGrey.withOpacity(0.75)),
                         hintText: "+1",
-                        hintStyle:
-                            TextStyle(color: AppColors.kGrey.withOpacity(0.75)),
+                        hintStyle: Theme.of(context)
+                            .textTheme
+                            .body1
+                            .copyWith(color: AppColors.kGrey.withOpacity(0.75)),
                         focusedBorder: OutlineInputBorder(
                             borderSide: BorderSide(
                                 color: AppColors.kGrey.withOpacity(0.75))),

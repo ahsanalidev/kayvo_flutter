@@ -6,7 +6,7 @@ class AppColors {
   static const kLightGrey = Color(0xFFECECF4);
   static const kRed = Color(0xFFEB4A56);
   static const kLightRed = Color(0xFFF49EA4);
-  static const kLighterRed = Color(0xFFD9DC);
+  static const kLighterRed = Color(0xFFFFD9DC);
   static const kWhite = Colors.white;
 }
 
@@ -58,7 +58,7 @@ ThemeData _buildmyTheme() {
         fontFamily: 'Helvetica',
       ),
       body1: TextStyle(
-        fontSize: 12,
+        fontSize: 14,
         color: AppColors.kBlack,
         fontWeight: FontWeight.w500,
         fontFamily: 'Helvetica',
