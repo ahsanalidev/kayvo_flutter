@@ -8,22 +8,21 @@ class NavBar extends StatefulWidget {
   _NavBarState createState() => _NavBarState();
 }
 
-class _NavBarState extends State<NavBar>  with SingleTickerProviderStateMixin {
+class _NavBarState extends State<NavBar> with SingleTickerProviderStateMixin {
   TabController _tabController;
-  
+
   @override
-  void @override
   void initState() {
     _tabController = TabController(
-      length: 3, vsync: this, initialIndex: widget.initialIndex
-    );
+        length: 3, vsync: this, initialIndex: widget.initialIndex);
     super.initState();
-    
   }
+
   @override
   Widget build(BuildContext context) {
-    return Container(
-       child: child,
-    );
+    return Scaffold(
+        body: TabBarView(
+      children: <Widget>[],
+    ));
   }
 }
