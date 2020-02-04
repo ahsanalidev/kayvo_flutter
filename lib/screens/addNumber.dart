@@ -23,6 +23,15 @@ class AddNumber extends StatelessWidget {
           child: Icon(Icons.arrow_forward),
           onPressed: () {},
         ),
+        body: Column(children: [
+          Align(
+            alignment: Alignment.center,
+            child: Text(
+              "Number Verification",
+              style: Theme.of(context).textTheme.title,
+            ),
+          )
+        ]),
       ),
     );
   }
