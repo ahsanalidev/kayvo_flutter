@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:kayvo_flutter/screens/addNumber.dart';
+import 'package:kayvo_flutter/screens/editProfile.dart';
 import 'package:kayvo_flutter/screens/verifyNumber.dart';
 import 'package:kayvo_flutter/screens/welcome.dart';
 
@@ -17,8 +18,9 @@ class MyApp extends StatelessWidget {
       initialRoute: '/',
       routes: {
         '/': (context) => Welcome(),
-        'addNumber': (context) => AddNumber(),
-        'verifyNumber': (context) => VerifyNumber(),
+        '/addNumber': (context) => AddNumber(),
+        '/verifyNumber': (context) => VerifyNumber(),
+        '/editProfile': (context) => EditProfile(),
       },
     );
   }

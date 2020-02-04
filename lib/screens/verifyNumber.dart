@@ -22,7 +22,9 @@ class VerifyNumber extends StatelessWidget {
         ),
         floatingActionButton: FloatingActionButton(
           child: Icon(Icons.arrow_forward),
-          onPressed: () {},
+          onPressed: () {
+            Navigator.pushNamed(context, '/editProfile');
+          },
         ),
         body: ListView(
           children: <Widget>[

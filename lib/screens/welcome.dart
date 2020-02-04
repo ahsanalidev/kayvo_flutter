@@ -7,7 +7,7 @@ class Welcome extends StatelessWidget {
   const Welcome({Key key}) : super(key: key);
 
   void onPress(BuildContext context) {
-    Navigator.pushNamed(context, 'addNumber');
+    Navigator.pushNamed(context, '/addNumber');
   }
 
   @override
