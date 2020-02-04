@@ -6,18 +6,34 @@ class Button extends StatelessWidget {
   final void Function() onPressed;
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 24.0),
+    return Container(
+      width: deviceWidth(context) * 0.9,
+      height: deviceHeight(context) * 0.08,
       child: FlatButton(
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5)),
         color: AppColors.kRed,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
-            Text("Agree and Continue"),
+            SizedBox(
+              width: deviceWidth(context) * 0.08,
+            ),
+            Text(
+              "Agree and Continue",
+              style: Theme.of(context)
+                  .textTheme
+                  .subtitle
+                  .copyWith(color: AppColors.kWhite),
+            ),
+            SizedBox(
+              width: deviceWidth(context) * 0.02,
+            ),
             Icon(
-              Icons.keyboard_arrow_right,
+              Icons.arrow_forward,
               color: Colors.white,
-            )
+              size: deviceWidth(context) * 0.06,
+            ),
           ],
         ),
         onPressed: onPressed,
