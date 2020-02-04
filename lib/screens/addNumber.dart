@@ -21,7 +21,9 @@ class AddNumber extends StatelessWidget {
         ),
         floatingActionButton: FloatingActionButton(
           child: Icon(Icons.arrow_forward),
-          onPressed: () {},
+          onPressed: () {
+            Navigator.pushNamed(context, '/navBar');
+          },
         ),
         body: Column(children: [
           Align(

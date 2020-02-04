@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:kayvo_flutter/screens/addNumber.dart';
 import 'package:kayvo_flutter/screens/welcome.dart';
 
+import 'elements/navbar.dart';
 import 'utilities/styles.dart';
 
 void main() => runApp(MyApp());
@@ -17,6 +18,7 @@ class MyApp extends StatelessWidget {
       routes: {
         '/': (context) => Welcome(),
         'addNumber': (context) => AddNumber(),
+        '/navBar': (context) => NavBar()
       },
     );
   }
