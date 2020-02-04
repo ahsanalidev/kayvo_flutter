@@ -48,7 +48,7 @@ ThemeData _buildmyTheme() {
       title: TextStyle(
         fontSize: 20,
         color: AppColors.kBlack,
-        fontWeight: FontWeight.w500,
+        fontWeight: FontWeight.w700,
         fontFamily: 'Helvetica',
       ),
       subhead: TextStyle(
