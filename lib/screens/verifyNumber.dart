@@ -48,7 +48,7 @@ class VerifyNumber extends StatelessWidget {
                 ),
                 SizedBox(height: deviceHeight(context) * 0.05),
                 Container(
-                  width: deviceWidth(context) * 0.71,
+                  width: deviceWidth(context) * 0.8,
                   child: PinCodeTextField(
                     pinBoxHeight: 50,
                     pinBoxWidth: 50,
