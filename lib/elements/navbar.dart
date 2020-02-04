@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:groovin_material_icons/groovin_material_icons.dart';
-import 'package:flutter_icons/flutter_icons.dart';
 import 'package:kayvo_flutter/utilities/styles.dart';
-import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
+import 'package:kayvo_flutter/screens/chatlist.dart';
 
 class NavBar extends StatefulWidget {
   NavBar({Key key}) : super(key: key);
@@ -14,15 +12,12 @@ class NavBar extends StatefulWidget {
 }
 
 class _NavBarState extends State<NavBar> {
-  int _selectedIndex = 1;
+  int _selectedIndex = 0;
   static TextStyle optionStyle =
       TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
 
   static List<Widget> _widgetOptions = <Widget>[
-    Text(
-      'Index 0: Home',
-      style: optionStyle,
-    ),
+    ChatList(),
     Text(
       'Index 1: Business',
       style: optionStyle,
@@ -42,9 +37,6 @@ class _NavBarState extends State<NavBar> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('BottomNavigationBar Sample'),
-      ),
       body: Center(
         child: _widgetOptions.elementAt(_selectedIndex),
       ),
@@ -55,6 +47,7 @@ class _NavBarState extends State<NavBar> {
               padding: const EdgeInsets.all(8.0),
               child: SvgPicture.asset(
                 'assets/camera-outline.svg',
+                color: AppColors.kGrey,
               ),
             ),
             activeIcon: Padding(
@@ -65,29 +58,64 @@ class _NavBarState extends State<NavBar> {
               ),
             ),
             title: Padding(
+              padding: const EdgeInsets.all(4.0),
+              child: Text(
+                'Camera',
+              ),
+            ),
+          ),
+          BottomNavigationBarItem(
+            icon: Padding(
               padding: const EdgeInsets.all(8.0),
-              child: Text('Camera'),
+              child: Icon(
+                FontAwesomeIcons.commentDots,
+                color: AppColors.kGrey,
+              ),
+            ),
+            activeIcon: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Icon(
+                FontAwesomeIcons.commentDots,
+                color: AppColors.kRed,
+              ),
+            ),
+            title: Padding(
+              padding: const EdgeInsets.all(4.0),
+              child: Text(
+                'Chats',
+              ),
             ),
           ),
           BottomNavigationBarItem(
-            icon: Icon(FontAwesomeIcons.commentDots),
-            activeIcon: Icon(
-              FontAwesomeIcons.commentDots,
-              color: AppColors.kRed,
+            icon: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Icon(
+                FontAwesomeIcons.cog,
+                color: AppColors.kGrey,
+              ),
             ),
-            title: Text('Chats'),
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(FontAwesomeIcons.cog),
-            activeIcon: Icon(
-              FontAwesomeIcons.cog,
-              color: AppColors.kRed,
+            activeIcon: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Icon(
+                FontAwesomeIcons.cog,
+                color: AppColors.kRed,
+              ),
             ),
-            title: Text('Settings'),
+            title: Padding(
+              padding: const EdgeInsets.all(4.0),
+              child: Text(
+                'Settings',
+              ),
+            ),
           ),
         ],
         currentIndex: _selectedIndex,
         selectedItemColor: AppColors.kRed,
+        unselectedItemColor: AppColors.kGrey,
+        selectedLabelStyle:
+            TextStyle(fontWeight: FontWeight.w700, fontSize: 16),
+        unselectedLabelStyle: TextStyle(color: AppColors.kGrey, fontSize: 16),
+        unselectedIconTheme: IconThemeData(size: 24, color: AppColors.kGrey),
         onTap: _onItemTapped,
       ),
     );
