@@ -1,8 +1,8 @@
-import 'package:alphabet_list_scroll_view/alphabet_list_scroll_view.dart';
 import 'package:faker/faker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:kayvo_flutter/utilities/styles.dart';
+import 'package:kayvo_flutter/package/alphabet_scroll.dart';
 
 class User {
   final String name;
