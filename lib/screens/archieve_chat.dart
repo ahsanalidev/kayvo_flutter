@@ -1,64 +1,27 @@
 import 'package:flutter_slidable/flutter_slidable.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:kayvo_flutter/utilities/styles.dart';
 
-class ChatList extends StatelessWidget {
-  const ChatList({Key key}) : super(key: key);
+class ArchieveChat extends StatelessWidget {
+  const ArchieveChat({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
+        leading: IconButton(
+          icon: Icon(
+            Icons.keyboard_arrow_left,
+            color: AppColors.kBlack,
+          ),
+          onPressed: () => Navigator.pop(context),
+        ),
         title: Text(
-          "Chats",
+          "Archived Chat",
           style: Theme.of(context).textTheme.title,
         ),
-        actions: <Widget>[
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-            child: SvgPicture.asset(
-              'assets/pen.svg',
-              height: 16,
-              width: 20,
-            ),
-          ),
-          Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-              child: IconButton(
-                icon: Icon(
-                  FontAwesomeIcons.user,
-                  color: Colors.black,
-                  size: 20,
-                ),
-                onPressed: () => Navigator.pushNamed(context, '/kayvocontacts'),
-              )),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-            child: IconButton(
-              icon: SvgPicture.asset(
-                'assets/archive.svg',
-                height: 20,
-                width: 20,
-              ),
-              onPressed: () => Navigator.pushNamed(context, '/archieveChat'),
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-            child: IconButton(
-              icon: SvgPicture.asset(
-                "assets/plus.svg",
-                color: Colors.black,
-                height: 20,
-                width: 20,
-              ),
-              onPressed: () => Navigator.pushNamed(context, '/newChat'),
-            ),
-          )
-        ],
       ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.start,

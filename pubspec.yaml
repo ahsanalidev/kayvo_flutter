@@ -15,6 +15,10 @@ dependencies:
   intl_phone_number_input: ^0.3.0
   flutter_slidable: ^0.5.4
   pin_code_text_field: ^1.5.1
+  alphabet_list_scroll_view: ^1.0.5
+  faker: ^1.2.0
+  vibration: ^1.2.2
+  rxdart: ^0.23.1
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
@@ -36,6 +40,7 @@ flutter:
     - assets/archive.svg
     - assets/plus.svg
     - assets/default_image.png
+    - assets/user-plus.svg
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
   # For details regarding adding assets from package dependencies, see

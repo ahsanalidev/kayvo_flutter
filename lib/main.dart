@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:kayvo_flutter/elements/trash.dart';
 import 'package:kayvo_flutter/screens/addNumber.dart';
+import 'package:kayvo_flutter/screens/archieve_chat.dart';
 import 'package:kayvo_flutter/screens/editProfile.dart';
+import 'package:kayvo_flutter/screens/kayvo_contacts.dart';
 import 'package:kayvo_flutter/screens/verifyNumber.dart';
 import 'package:kayvo_flutter/screens/welcome.dart';
+import 'package:kayvo_flutter/screens/newChat.dart';
 
 import 'elements/navbar.dart';
 import 'utilities/styles.dart';
@@ -23,6 +27,9 @@ class MyApp extends StatelessWidget {
         '/navBar': (context) => NavBar(),
         '/verifyNumber': (context) => VerifyNumber(),
         '/editProfile': (context) => EditProfile(),
+        '/kayvocontacts': (context) => Kayvo_Contacts(),
+        '/newChat': (context) => New_Chat(),
+        '/archieveChat': (context) => ArchieveChat(),
       },
     );
   }
