@@ -37,25 +37,47 @@ class EditProfile extends StatelessWidget {
                 SizedBox(
                   height: deviceHeight(context) * 0.075,
                 ),
-                Stack(
-                  alignment: Alignment.center,
-                  children: <Widget>[
-                    CircleAvatar(
-                      child: Image.asset("assets/default_image.png"),
-                      backgroundColor: AppColors.kLightRed,
-                      radius: deviceHeight(context) * 0.075,
-                    ),
-                    Positioned(
-                      bottom: 0,
-                      left: 0,
-                      right: 0,
-                      child: Container(
-                          height: 42,
+                Container(
+                  height: deviceHeight(context) * 0.175,
+                  width: deviceHeight(context) * 0.175,
+                  child: Stack(
+                    // fit: StackFit.expand,
+                    alignment: Alignment.center,
+                    children: <Widget>[
+                      CircleAvatar(
+                        child: Image.asset("assets/default_image.png"),
+                        backgroundColor: AppColors.kLightRed,
+                        radius: deviceHeight(context) * 0.075,
+                      ),
+                      Positioned(
+                        bottom: 0,
+                        // left: 0,
+                        right: 0,
+                        child: Container(
+                          height: 36,
+                          width: 36,
                           decoration: BoxDecoration(
-                              color: AppColors.kBlack, shape: BoxShape.circle)),
-                    )
-                  ],
+                            color: AppColors.kWhite,
+                            shape: BoxShape.circle,
+                            boxShadow: [
+                              BoxShadow(
+                                  blurRadius: 7,
+                                  spreadRadius: 2,
+                                  color: AppColors.kBlack.withOpacity(0.1)),
+                            ],
+                          ),
+                          child: Icon(
+                            Icons.camera_alt,
+                            color: AppColors.kBlack,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
+                TextFormField(),
+                TextFormField(),
+                TextFormField(),
               ],
             ),
           ],
