@@ -17,13 +17,13 @@ class _NavBarState extends State<NavBar> {
       TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
 
   static List<Widget> _widgetOptions = <Widget>[
-    ChatList(),
     Text(
-      'Index 1: Business',
+      'Index 1: Camera',
       style: optionStyle,
     ),
+    ChatList(),
     Text(
-      'Index 2: School',
+      'Index 3: Settings',
       style: optionStyle,
     ),
   ];
