@@ -19,8 +19,8 @@ class MyApp extends StatelessWidget {
       initialRoute: '/',
       routes: {
         '/': (context) => Welcome(),
-        'addNumber': (context) => AddNumber(),
-        '/navBar': (context) => NavBar()
+        '/addNumber': (context) => AddNumber(),
+        '/navBar': (context) => NavBar(),
         '/verifyNumber': (context) => VerifyNumber(),
         '/editProfile': (context) => EditProfile(),
       },

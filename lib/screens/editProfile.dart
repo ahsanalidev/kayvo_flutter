@@ -26,7 +26,9 @@ class EditProfile extends StatelessWidget {
         ),
         floatingActionButton: FloatingActionButton(
           child: Icon(Icons.check),
-          onPressed: () {},
+          onPressed: () {
+            Navigator.pushNamed(context, '/navBar');
+          },
         ),
         body: ListView(
           children: <Widget>[
