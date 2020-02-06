@@ -39,6 +39,10 @@ flutter:
     - assets/plus.svg
     - assets/default_image.png
     - assets/user-plus.svg
+    - assets/settings.svg
+    - assets/globe-asia.svg
+    - assets/user-friends.svg
+    - assets/question-circle.svg
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
   # For details regarding adding assets from package dependencies, see

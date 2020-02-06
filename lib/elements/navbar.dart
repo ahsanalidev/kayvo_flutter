@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:kayvo_flutter/screens/settings.dart';
 import 'package:kayvo_flutter/utilities/styles.dart';
 import 'package:kayvo_flutter/screens/chatlist.dart';
 
@@ -22,10 +23,7 @@ class _NavBarState extends State<NavBar> {
       style: optionStyle,
     ),
     ChatList(),
-    Text(
-      'Index 3: Settings',
-      style: optionStyle,
-    ),
+    Settings(),
   ];
 
   void _onItemTapped(int index) {
@@ -89,15 +87,15 @@ class _NavBarState extends State<NavBar> {
           BottomNavigationBarItem(
             icon: Padding(
               padding: const EdgeInsets.all(8.0),
-              child: Icon(
-                FontAwesomeIcons.cog,
+              child: SvgPicture.asset(
+                'assets/settings.svg',
                 color: AppColors.kGrey,
               ),
             ),
             activeIcon: Padding(
               padding: const EdgeInsets.all(8.0),
-              child: Icon(
-                FontAwesomeIcons.cog,
+              child: SvgPicture.asset(
+                'assets/settings.svg',
                 color: AppColors.kRed,
               ),
             ),

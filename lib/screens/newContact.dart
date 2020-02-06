@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:intl_phone_number_input/intl_phone_number_input.dart';
 import 'package:kayvo_flutter/elements/kTextField.dart';
 import 'package:kayvo_flutter/utilities/styles.dart';
@@ -74,9 +75,13 @@ class _NewContactState extends State<NewContact> {
                                   color: AppColors.kBlack.withOpacity(0.1)),
                             ],
                           ),
-                          child: Icon(
-                            Icons.camera_alt,
-                            color: AppColors.kBlack,
+                          child: Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: SvgPicture.asset(
+                              'assets/camera-outline.svg',
+                              fit: BoxFit.fill,
+                              color: AppColors.kBlack,
+                            ),
                           ),
                         ),
                       ),
