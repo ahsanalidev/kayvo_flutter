@@ -88,13 +88,23 @@ class Settings extends StatelessWidget {
                 ),
                 ListTile(
                   onTap: () {},
-                  leading: Icon(FontAwesomeIcons.userCircle),
+                  leading: SvgPicture.asset(
+                    "assets/user-circle.svg",
+                    width: 24,
+                    height: 24,
+                    color: AppColors.kBlack.withOpacity(0.75),
+                  ),
                   title: Text("Account"),
                   trailing: Icon(Icons.keyboard_arrow_right),
                 ),
                 ListTile(
                   onTap: () {},
-                  leading: Icon(FontAwesomeIcons.commentDots),
+                  leading: SvgPicture.asset(
+                    "assets/comment-dots.svg",
+                    width: 24,
+                    height: 24,
+                    color: AppColors.kBlack.withOpacity(0.75),
+                  ),
                   title: Text("Chats"),
                   trailing: Icon(Icons.keyboard_arrow_right),
                 ),
@@ -111,7 +121,12 @@ class Settings extends StatelessWidget {
                 ),
                 ListTile(
                   onTap: () {},
-                  leading: Icon(FontAwesomeIcons.bell),
+                  leading: SvgPicture.asset(
+                    "assets/bell.svg",
+                    width: 24,
+                    height: 24,
+                    color: AppColors.kBlack.withOpacity(0.75),
+                  ),
                   title: Text("Notification"),
                   trailing: Icon(Icons.keyboard_arrow_right),
                 ),

@@ -65,16 +65,20 @@ class _NavBarState extends State<NavBar> {
           BottomNavigationBarItem(
             icon: Padding(
               padding: const EdgeInsets.all(8.0),
-              child: Icon(
-                FontAwesomeIcons.commentDots,
+              child: SvgPicture.asset(
+                'assets/comment-dots.svg',
                 color: AppColors.kGrey,
+                width: 24,
+                height: 24,
               ),
             ),
             activeIcon: Padding(
               padding: const EdgeInsets.all(8.0),
-              child: Icon(
-                FontAwesomeIcons.commentDots,
+              child: SvgPicture.asset(
+                'assets/comment-dots.svg',
                 color: AppColors.kRed,
+                width: 24,
+                height: 24,
               ),
             ),
             title: Padding(

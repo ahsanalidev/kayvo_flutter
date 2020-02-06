@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:kayvo_flutter/screens/addNumber.dart';
 import 'package:kayvo_flutter/screens/archieve_chat.dart';
+import 'package:kayvo_flutter/screens/contactInfo.dart';
 import 'package:kayvo_flutter/screens/editProfile.dart';
 import 'package:kayvo_flutter/screens/kayvo_contacts.dart';
 import 'package:kayvo_flutter/screens/newContact.dart';
@@ -33,6 +34,7 @@ class MyApp extends StatelessWidget {
         '/archieveChat': (context) => ArchieveChat(),
         '/newContact': (context) => NewContact(),
         '/profile': (context) => Profile(),
+        '/contactInfo': (context) => ConactInfo()
       },
     );
   }
