@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:kayvo_flutter/elements/kTextField.dart';
 import 'package:kayvo_flutter/utilities/styles.dart';
 
 class EditProfile extends StatelessWidget {
@@ -54,20 +55,22 @@ class EditProfile extends StatelessWidget {
                         // left: 0,
                         right: 0,
                         child: Container(
-                          height: 36,
-                          width: 36,
+                          height: 35,
+                          width: 35,
                           decoration: BoxDecoration(
                             color: AppColors.kWhite,
                             shape: BoxShape.circle,
                             boxShadow: [
                               BoxShadow(
-                                  blurRadius: 7,
-                                  spreadRadius: 2,
-                                  color: AppColors.kBlack.withOpacity(0.1)),
+                                blurRadius: 7,
+                                spreadRadius: 2,
+                                color: AppColors.kBlack.withOpacity(0.1),
+                              ),
                             ],
                           ),
                           child: Icon(
                             Icons.camera_alt,
+                            size: 20,
                             color: AppColors.kBlack,
                           ),
                         ),
@@ -75,9 +78,35 @@ class EditProfile extends StatelessWidget {
                     ],
                   ),
                 ),
-                TextFormField(),
-                TextFormField(),
-                TextFormField(),
+                SizedBox(
+                  height: deviceHeight(context) * 0.05,
+                ),
+                KTextField("Your Name", "Ayodeji Abraham"),
+                KTextField("Status", "Hey there! I am using Kayvo"),
+                KTextField("About", "King"),
+                SizedBox(
+                  height: deviceHeight(context) * 0.025,
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(24.0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: <Widget>[
+                      Container(
+                        height: 1,
+                        width: deviceWidth(context) * 0.275,
+                        color: AppColors.kLightGrey,
+                      ),
+                      Text("More Fields"),
+                      Icon(Icons.keyboard_arrow_down),
+                      Container(
+                        height: 1,
+                        width: deviceWidth(context) * 0.275,
+                        color: AppColors.kLightGrey,
+                      ),
+                    ],
+                  ),
+                )
               ],
             ),
           ],
