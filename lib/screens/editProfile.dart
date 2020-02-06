@@ -28,7 +28,7 @@ class EditProfile extends StatelessWidget {
         floatingActionButton: FloatingActionButton(
           child: Icon(Icons.check),
           onPressed: () {
-            Navigator.pushNamed(context, '/navBar');
+            Navigator.pushNamed(context, '/newContact');
           },
         ),
         body: ListView(
@@ -106,7 +106,7 @@ class EditProfile extends StatelessWidget {
                       ),
                     ],
                   ),
-                )
+                ),
               ],
             ),
           ],
