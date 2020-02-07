@@ -3,8 +3,8 @@ import 'package:flutter_svg/svg.dart';
 import 'package:kayvo_flutter/elements/kTextField.dart';
 import 'package:kayvo_flutter/utilities/styles.dart';
 
-class EditProfile extends StatelessWidget {
-  const EditProfile({Key key}) : super(key: key);
+class Profile extends StatelessWidget {
+  const Profile({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -13,8 +13,7 @@ class EditProfile extends StatelessWidget {
         appBar: AppBar(
           title: Padding(
             padding: const EdgeInsets.only(top: 4.0),
-            child:
-                Text('Edit Profile', style: Theme.of(context).textTheme.title),
+            child: Text('Profile', style: Theme.of(context).textTheme.title),
           ),
           elevation: 0,
           leading: IconButton(
@@ -29,7 +28,7 @@ class EditProfile extends StatelessWidget {
         floatingActionButton: FloatingActionButton(
           child: Icon(Icons.check),
           onPressed: () {
-            Navigator.pushNamed(context, '/profile');
+            Navigator.pushNamed(context, '/newContact');
           },
         ),
         body: ListView(

@@ -71,6 +71,9 @@ class _Kayvo_ContactsState extends State<Kayvo_Contacts> {
               ),
             ],
             child: ListTile(
+              onTap: () {
+                Navigator.pushNamed(context, "/contactInfo");
+              },
               leading: Stack(
                 children: <Widget>[
                   CircleAvatar(
@@ -109,6 +112,9 @@ class _Kayvo_ContactsState extends State<Kayvo_Contacts> {
               ),
             ],
             child: ListTile(
+              onTap: () {
+                Navigator.pushNamed(context, "/contactInfo");
+              },
               leading: CircleAvatar(
                 backgroundImage: AssetImage('assets/default_image.png'),
               ),

@@ -48,6 +48,14 @@ flutter:
     - assets/ellipsis-v.svg
     - assets/paperclip.svg
     - assets/shield-check.svg
+    - assets/settings.svg
+    - assets/globe-asia.svg
+    - assets/user-friends.svg
+    - assets/question-circle.svg
+    - assets/comment-dots.svg
+    - assets/user-circle.svg
+    - assets/bell.svg
+    - assets/default_contact_image.png
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
   # For details regarding adding assets from package dependencies, see
