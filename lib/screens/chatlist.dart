@@ -135,6 +135,7 @@ class SlideableListTile extends StatelessWidget {
               ],
             ),
           ),
+          onTap: () => Navigator.pushNamed(context, '/chatWidget'),
         ),
       ),
       actions: <Widget>[
