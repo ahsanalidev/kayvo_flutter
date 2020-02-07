@@ -4,13 +4,72 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:giphy_picker/giphy_picker.dart';
 import 'package:kayvo_flutter/utilities/styles.dart';
 import 'package:kayvo_flutter/package/dash_chat/dash_chat.dart';
 
-class ChatWidget extends StatelessWidget {
+class security extends StatefulWidget {
+  security({
+    Key key,
+  }) : super(key: key);
+  @override
+  _securityState createState() => _securityState();
+}
+
+bool showsecurity = true;
+
+class _securityState extends State<security> {
+  Widget security_msg = Center(
+    child: Container(
+      width: 300,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        mainAxisSize: MainAxisSize.min,
+        children: <Widget>[
+          Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: SvgPicture.asset(
+              'assets/shield-check.svg',
+              height: 20,
+              width: 20,
+              color: AppColors.kGrey,
+            ),
+          ),
+          Text(
+            "Messages in this chat are private and protected by Kayvo's end to end encryption",
+            //  style: Theme.of(context).textTheme.subtitle,
+            textAlign: TextAlign.center,
+          )
+        ],
+      ),
+    ),
+  );
+  @override
+  Widget build(BuildContext context) {
+    return showsecurity
+        ? security_msg
+        : SizedBox(
+            height: null,
+          );
+  }
+}
+
+class ChatWidget extends StatefulWidget {
   const ChatWidget({Key key}) : super(key: key);
 
+  @override
+  _ChatWidgetState createState() => _ChatWidgetState();
+}
+
+class _ChatWidgetState extends State<ChatWidget> {
+  bool _active = false;
+
+  void _handleTapboxChanged(bool newValue) {
+    setState(() {
+      _active = newValue;
+    });
+  }
+
+  // Widget securtiyWIdget = security;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -25,36 +84,33 @@ class ChatWidget extends StatelessWidget {
                   Icons.keyboard_arrow_left,
                   color: AppColors.kBlack,
                 ),
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.pop(context);
+                },
               ),
             ),
             title: Padding(
-              padding: const EdgeInsets.fromLTRB(0, 20, 0, 0),
+              padding: const EdgeInsets.only(top: 20),
               child: Row(
                 children: <Widget>[
                   CircleAvatar(
                     backgroundImage: AssetImage('assets/default_image.png'),
                     radius: 20,
                   ),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: 20,
-                    ),
-                    child: Column(
-                      children: <Widget>[
-                        Text(
-                          "  Ayodeji Abraham",
-                          style: Theme.of(context).textTheme.title,
-                        ),
-                        Text(
-                          "last seen today at 9:41 AM",
-                          style: Theme.of(context)
-                              .textTheme
-                              .subtitle
-                              .copyWith(color: AppColors.kGrey),
-                        )
-                      ],
-                    ),
+                  Column(
+                    children: <Widget>[
+                      Text(
+                        "  Ayodeji Abraham",
+                        style: Theme.of(context).textTheme.title,
+                      ),
+                      Text(
+                        "last seen today at 9:41 AM",
+                        style: Theme.of(context)
+                            .textTheme
+                            .subtitle
+                            .copyWith(color: AppColors.kGrey),
+                      )
+                    ],
                   ),
                 ],
               ),
@@ -87,11 +143,13 @@ class ChatWidget extends StatelessWidget {
                             padding: const EdgeInsets.only(bottom: 48.0),
                             child: Stack(
                               children: <Widget>[
-                                ChattingWidget(),
+                                ChattingWidget(
+                                  onChanged: _handleTapboxChanged,
+                                ),
                               ],
                             ),
                           ),
-                          _security()
+                          _active ? SizedBox(height: 0) : security(),
                         ],
                       ),
                     ])),
@@ -99,38 +157,34 @@ class ChatWidget extends StatelessWidget {
         ]));
   }
 
-  Widget _security() {
-    return Center(
-      child: Container(
-        width: 300,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          mainAxisSize: MainAxisSize.min,
-          children: <Widget>[
-            SvgPicture.asset(
-              'assets/shield-check.svg',
-              height: 20,
-              width: 20,
-              color: AppColors.kGrey,
-            ),
-            Text(
-              "Messages in this chat are private and protected by Kayvo's end to end encryption",
-              //  style: Theme.of(context).textTheme.subtitle,
-            )
-          ],
-        ),
-      ),
-    );
-  }
+  // void setStatecall() {
+  //   setState(() {
+  //     if (showsecurity) {
+  //       print("Security WIdget");
+  //       securtiyWIdget = security;
+  //     } else {
+  //       print("No Widget");
+  //       securtiyWIdget = SizedBox(
+  //         height: 0,
+  //       );
+  //     }
+  //   });
+  // }
 }
 
 class ChattingWidget extends StatefulWidget {
+  const ChattingWidget({@required this.onChanged});
+  final ValueChanged<bool> onChanged;
   @override
   _ChattingWidgetState createState() => _ChattingWidgetState();
 }
 
 class _ChattingWidgetState extends State<ChattingWidget> {
   final GlobalKey<DashChatState> _chatViewKey = GlobalKey<DashChatState>();
+
+  void _handleTap() {
+    widget.onChanged(true);
+  }
 
   final ChatUser user = ChatUser(
     name: "Fayeed",
@@ -204,6 +258,7 @@ class _ChattingWidgetState extends State<ChattingWidget> {
   }
 
   void onSend(ChatMessage message) {
+    _handleTap();
     setState(() {
       messages = [...messages, message];
       print(messages.length);
@@ -229,7 +284,7 @@ class _ChattingWidgetState extends State<ChattingWidget> {
         inverted: false,
         onSend: onSend,
         user: user,
-        height: deviceHeight(context) * 0.98,
+        height: deviceHeight(context) * 0.8,
         inputDecoration: InputDecoration.collapsed(
           hintText: "Type a message",
           hintStyle: TextStyle(

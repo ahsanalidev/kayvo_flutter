@@ -6,6 +6,7 @@ import 'package:kayvo_flutter/screens/contactInfo.dart';
 import 'package:kayvo_flutter/screens/editProfile.dart';
 import 'package:kayvo_flutter/screens/kayvo_contacts.dart';
 import 'package:kayvo_flutter/screens/newContact.dart';
+import 'package:kayvo_flutter/screens/pick_lang.dart';
 import 'package:kayvo_flutter/screens/profile.dart';
 import 'package:kayvo_flutter/screens/verifyNumber.dart';
 import 'package:kayvo_flutter/screens/welcome.dart';
@@ -36,7 +37,8 @@ class MyApp extends StatelessWidget {
         '/chatWidget': (context) => ChatWidget(),
         '/newContact': (context) => NewContact(),
         '/profile': (context) => Profile(),
-        '/contactInfo': (context) => ConactInfo()
+        '/contactInfo': (context) => ConactInfo(),
+        '/languagePicker': (context) => LanguageList(),
       },
     );
   }

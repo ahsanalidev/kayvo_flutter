@@ -17,46 +17,38 @@ class ChatList extends StatelessWidget {
           style: Theme.of(context).textTheme.title,
         ),
         actions: <Widget>[
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-            child: SvgPicture.asset(
+          IconButton(
+            icon: SvgPicture.asset(
               'assets/pen.svg',
               height: 16,
               width: 20,
             ),
+            onPressed: () {},
           ),
-          Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-              child: IconButton(
-                icon: Icon(
-                  FontAwesomeIcons.user,
-                  color: Colors.black,
-                  size: 20,
-                ),
-                onPressed: () => Navigator.pushNamed(context, '/kayvocontacts'),
-              )),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-            child: IconButton(
-              icon: SvgPicture.asset(
-                'assets/archive.svg',
-                height: 20,
-                width: 20,
-              ),
-              onPressed: () => Navigator.pushNamed(context, '/archieveChat'),
+          IconButton(
+            icon: Icon(
+              FontAwesomeIcons.user,
+              color: Colors.black,
+              size: 20,
             ),
+            onPressed: () => Navigator.pushNamed(context, '/kayvocontacts'),
           ),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-            child: IconButton(
-              icon: SvgPicture.asset(
-                "assets/plus.svg",
-                color: Colors.black,
-                height: 20,
-                width: 20,
-              ),
-              onPressed: () => Navigator.pushNamed(context, '/newChat'),
+          IconButton(
+            icon: SvgPicture.asset(
+              'assets/archive.svg',
+              height: 20,
+              width: 20,
             ),
+            onPressed: () => Navigator.pushNamed(context, '/archieveChat'),
+          ),
+          IconButton(
+            icon: SvgPicture.asset(
+              "assets/plus.svg",
+              color: Colors.black,
+              height: 20,
+              width: 20,
+            ),
+            onPressed: () => Navigator.pushNamed(context, '/newChat'),
           )
         ],
       ),
