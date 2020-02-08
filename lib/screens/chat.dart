@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:kayvo_flutter/utilities/styles.dart';
-import 'package:kayvo_flutter/package/dash_chat/dash_chat.dart';
+import 'package:dash_chat/dash_chat.dart';
 
 class security extends StatefulWidget {
   security({

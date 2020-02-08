@@ -9,27 +9,26 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  flare_splash_screen: ^3.0.0
   flutter_svg: ^0.17.1
   font_awesome_flutter: ^8.5.0
   flutter_slidable: ^0.5.4
-  pin_code_text_field: ^1.5.1
-  faker: ^1.2.0
-  vibration: ^1.2.2
-  rxdart: ^0.22.3
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^0.1.2
-  giphy_picker: ^1.0.4
-  uuid: ^2.0.4
-  intl: ^0.16.1
-  flutter_parsed_text: ^1.2.3
-  transparent_image: ^1.0.0
   popup_menu: ^1.0.5
-  language_pickers: ^0.1.3
-  provider: ^4.0.3
   libphonenumber: ^1.0.1
-
+  intl_phone_number_input:
+    path: ./intl_phone_number_input
+  dash_chat:
+    path: ./dash_chat
+  alphabet_scroll:
+    path: ./alphabet_scroll
+  language_scroll:
+    path: ./language_scroll
+  pincode_textfield:
+    path: ./pincode_textfield
+  faker: ^1.2.0
+  language_pickers: ^0.1.3
 dev_dependencies:
   flutter_test:
     sdk: flutter

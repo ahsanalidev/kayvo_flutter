@@ -18,14 +18,22 @@ class MyCustomAppBar extends StatelessWidget implements PreferredSizeWidget {
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           mainAxisSize: MainAxisSize.max,
           children: [
+            // IconButton(
+            //   icon: Icon(Icons.arrow_back_ios),
+            //   color: AppColors.kBlack,
+            //   iconSize: 24,
+            //   onPressed: () {
+            //     Navigator.pop(context);
+            //   },
+            // ),
             InkWell(
               child: Padding(
-                padding: const EdgeInsets.only(right: 20),
-                child: Icon(
-                  Icons.keyboard_arrow_left,
-                  color: AppColors.kBlack,
-                ),
-              ),
+                  padding:
+                      const EdgeInsets.only(right: 20, top: 10, bottom: 10),
+                  child: Icon(
+                    Icons.arrow_back_ios,
+                    color: AppColors.kBlack,
+                  )),
               onTap: () {
                 Navigator.pop(context);
               },

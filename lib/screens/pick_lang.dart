@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:kayvo_flutter/elements/appbar.dart';
 import 'package:kayvo_flutter/utilities/styles.dart';
-import 'package:kayvo_flutter/package/language_scroll.dart';
+import 'package:language_scroll/language_scroll.dart';
 import 'package:language_pickers/language.dart';
 import 'package:language_pickers/languages.dart';
 
@@ -68,7 +68,7 @@ class _LanguageListState extends State<LanguageList> {
     return Scaffold(
       appBar: MyCustomAppBar(
         searchController: searchController,
-        height: 180,
+        height: 200,
       ),
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.check),

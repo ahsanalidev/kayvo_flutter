@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:intl_phone_number_input/intl_phone_number_input.dart';
 import 'package:kayvo_flutter/elements/kTextField.dart';
-import 'package:kayvo_flutter/package/intl_phone_number_input/intl_phone_number_input.dart';
 import 'package:kayvo_flutter/utilities/styles.dart';
 
 class NewContact extends StatefulWidget {

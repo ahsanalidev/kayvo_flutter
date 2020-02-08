@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:kayvo_flutter/utilities/styles.dart';
-import 'package:kayvo_flutter/package/pincode_textfield.dart';
+import 'package:pincode_textfield/pincode_textfield.dart';
 
 class VerifyNumber extends StatelessWidget {
   const VerifyNumber({Key key}) : super(key: key);
