@@ -27,7 +27,7 @@ class LoadEarlierWidget extends StatelessWidget {
           vertical: 5.0,
         ),
         decoration: BoxDecoration(
-            color: Colors.white,
+            color: Theme.of(context).accentColor,
             borderRadius: BorderRadius.circular(20.0),
             boxShadow: [
               BoxShadow(
@@ -39,9 +39,7 @@ class LoadEarlierWidget extends StatelessWidget {
             ]),
         child: Text(
           "Load Earlier Messages",
-          style: TextStyle(
-            color: Theme.of(context).primaryColor,
-          ),
+          style: TextStyle(color: Colors.black),
         ),
       ),
     );

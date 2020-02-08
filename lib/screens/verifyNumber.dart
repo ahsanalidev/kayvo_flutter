@@ -47,8 +47,8 @@ class VerifyNumber extends StatelessWidget {
                   ),
                 ),
                 SizedBox(height: deviceHeight(context) * 0.05),
-                Container(
-                  width: deviceWidth(context) * 0.8,
+                Align(
+                  alignment: Alignment.center,
                   child: PinCodeTextField(
                     pinBoxHeight: 50,
                     pinBoxWidth: 50,
@@ -57,6 +57,8 @@ class VerifyNumber extends StatelessWidget {
                     defaultBorderColor: AppColors.kGrey,
                     pinBoxOuterPadding: EdgeInsets.symmetric(horizontal: 12),
                     hasTextBorderColor: AppColors.kLightRed,
+                    //  maxLength: 50,
+                    wrapAlignment: WrapAlignment.center,
                   ),
                 ),
                 SizedBox(height: deviceHeight(context) * 0.05),

@@ -272,11 +272,9 @@ class _ChattingWidgetState extends State<ChattingWidget> {
     }
   }
 
-  //ScrollController scrollController  = ScrollController();
   @override
   Widget build(BuildContext context) {
     return DashChat(
-      //    scrollController: scrollController,
       key: _chatViewKey,
       inverted: false,
       onSend: onSend,
@@ -301,14 +299,6 @@ class _ChattingWidgetState extends State<ChattingWidget> {
       inputTextStyle: Theme.of(context).textTheme.body1,
       messages: messages,
       scrollToBottom: false,
-
-      //     onScrollToBottomPress :(){
-      //       scrollController.animateTo(
-      //    0.0,
-      //    curve: Curves.easeOut,
-      //    duration: const Duration(milliseconds: 300),
-      //  );
-      //     },
       showTraillingBeforeSend: true,
       trailing: <Widget>[
         IconButton(
@@ -337,7 +327,6 @@ class _ChattingWidgetState extends State<ChattingWidget> {
           onPressed: click,
         );
       },
-
       avatarBuilder: (user) => CircleAvatar(
         backgroundColor: AppColors.kLightGrey,
         backgroundImage: AssetImage('assets/default_image.png'),
@@ -353,20 +342,12 @@ class _ChattingWidgetState extends State<ChattingWidget> {
       inputMaxLines: 5,
       messageContainerPadding: EdgeInsets.only(left: 5.0, right: 5.0),
       alwaysShowSend: false,
-
       inputContainerStyle: BoxDecoration(
           borderRadius: BorderRadius.circular(10), color: AppColors.kLightGrey),
       onLoadEarlier: () {
         print("laoding...");
       },
       shouldShowLoadEarlier: true,
-      messageContainerDecoration: BoxDecoration(
-        borderRadius: BorderRadius.only(
-            topLeft: Radius.circular(10),
-            topRight: Radius.circular(10),
-            bottomLeft: Radius.circular(10)),
-        color: AppColors.kLightGrey,
-      ),
     );
   }
 }

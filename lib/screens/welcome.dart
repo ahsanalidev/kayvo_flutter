@@ -17,7 +17,6 @@ class Welcome extends StatelessWidget {
         body: ListView(
           children: <Widget>[
             Column(
-              // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: <Widget>[
                 SizedBox(
                   height: deviceHeight(context) * 0.1,

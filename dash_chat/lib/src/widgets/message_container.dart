@@ -40,7 +40,8 @@ class MessageContainer extends StatelessWidget {
   /// A flag which is used for assiging styles
   final bool isUser;
 
-  const MessageContainer({
+  MessageContainer({
+    // this.key,
     @required this.message,
     @required this.timeFormat,
     this.messageImageBuilder,
@@ -50,13 +51,60 @@ class MessageContainer extends StatelessWidget {
     this.parsePatterns = const <MatchText>[],
     this.isUser,
   });
+  Rect myRect = const Offset(1.0, 2.0) & const Size(3.0, 4.0);
 
   @override
   Widget build(BuildContext context) {
+    Rect _showRect;
+
+    PopupMenu.context = context;
+    PopupMenu menu = PopupMenu(
+      items: [
+        MenuItem(
+            title: 'Home',
+            image: Icon(
+              Icons.home,
+              color: Colors.white,
+            )),
+        MenuItem(
+            title: 'Mail',
+            image: Icon(
+              Icons.mail,
+              color: Colors.white,
+            )),
+        MenuItem(
+            title: 'Power',
+            image: Icon(
+              Icons.power,
+              color: Colors.white,
+            )),
+        MenuItem(
+            title: 'Setting',
+            image: Icon(
+              Icons.settings,
+              color: Colors.white,
+            )),
+        MenuItem(
+            title: 'Traffic',
+            image: Icon(
+              Icons.traffic,
+              color: Colors.white,
+            ))
+      ],
+    );
+
     return ConstrainedBox(
       constraints: BoxConstraints(
         maxWidth: MediaQuery.of(context).size.width * 0.8,
       ),
+
+      //    messageContainerDecoration: BoxDecoration(
+      //   borderRadius: BorderRadius.only(
+      //       topLeft: Radius.circular(10),
+      //       topRight: Radius.circular(10),
+      //       bottomLeft: Radius.circular(10)),
+      //   color: AppColors.kLightGrey,
+      // ),
       child: Container(
         decoration: messageContainerDecoration != null
             ? messageContainerDecoration.copyWith(
@@ -70,7 +118,15 @@ class MessageContainer extends StatelessWidget {
                     : isUser
                         ? Theme.of(context).accentColor
                         : Color.fromRGBO(225, 225, 225, 1),
-                borderRadius: BorderRadius.circular(5.0),
+                borderRadius: isUser
+                    ? BorderRadius.only(
+                        topLeft: Radius.circular(10),
+                        topRight: Radius.circular(10),
+                        bottomLeft: Radius.circular(10))
+                    : BorderRadius.only(
+                        topLeft: Radius.circular(10),
+                        topRight: Radius.circular(10),
+                        bottomRight: Radius.circular(10)),
               ),
         margin: EdgeInsets.only(
           bottom: 5.0,
@@ -89,7 +145,7 @@ class MessageContainer extends StatelessWidget {
                 style: TextStyle(
                   color: message.user.color != null
                       ? message.user.color
-                      : isUser ? Colors.white70 : Colors.black87,
+                      : isUser ? Colors.black87 : Colors.black87,
                 ),
               ),
             if (message.image != null)
@@ -123,7 +179,7 @@ class MessageContainer extends StatelessWidget {
                     fontSize: 10.0,
                     color: message.user.color != null
                         ? message.user.color
-                        : isUser ? Colors.white70 : Colors.black87,
+                        : Colors.black87,
                   ),
                 ),
               )

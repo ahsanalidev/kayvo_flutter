@@ -62,12 +62,14 @@ class ChatList extends StatelessWidget {
                   primaryColor: AppColors.kGrey,
                   accentColor: AppColors.kLightGrey),
               child: Container(
-                height: MediaQuery.of(context).size.height * 0.08,
+                height: MediaQuery.of(context).size.height * 0.07,
                 child: TextField(
                   decoration: InputDecoration(
                     border: new OutlineInputBorder(
                         borderSide: new BorderSide(color: Colors.red)),
                     hintText: 'Search',
+                    contentPadding:
+                        EdgeInsets.symmetric(vertical: 5, horizontal: 8),
                     suffixIcon: Icon(
                       Icons.search,
                       color: Colors.black,

@@ -31,7 +31,7 @@ ThemeData _buildmyTheme() {
     ),
     primaryColor: AppColors.kWhite,
     backgroundColor: AppColors.kWhite,
-    accentColor: AppColors.kRed,
+    accentColor: AppColors.kLighterRed,
     scaffoldBackgroundColor: AppColors.kWhite,
     errorColor: AppColors.kRed,
     buttonTheme: base.buttonTheme.copyWith(

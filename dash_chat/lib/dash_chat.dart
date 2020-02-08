@@ -12,6 +12,7 @@ import 'package:transparent_image/transparent_image.dart';
 
 export 'package:intl/intl.dart';
 export 'package:flutter_parsed_text/flutter_parsed_text.dart';
+export 'package:popup_menu/popup_menu.dart';
 
 part 'src/chat_view.dart';
 part 'src/models/reply.dart';
