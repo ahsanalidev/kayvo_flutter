@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-import 'package:kayvo_flutter/utilities/styles.dart';
 import 'package:libphonenumber/libphonenumber.dart';
 import 'package:provider/provider.dart';
 
@@ -345,13 +344,13 @@ class _InputWidgetState extends State<_InputWidget> {
                   ? Container(
                       padding: EdgeInsets.all(8),
                       decoration: BoxDecoration(
-                          border: Border.all(color: AppColors.kGrey),
+                          border: Border.all(color: Colors.grey),
                           borderRadius: BorderRadius.circular(5)),
                       child: DropdownButtonHideUnderline(
                         child: DropdownButton<Country>(
                           icon: Icon(
                             Icons.keyboard_arrow_down,
-                            color: AppColors.kGrey,
+                            color: Colors.grey,
                           ),
                           hint: _Item(country: provider.country),
                           value: provider.country,
@@ -392,7 +391,7 @@ class _InputWidgetState extends State<_InputWidget> {
           SizedBox(width: 12),
           Flexible(
             child: TextFormField(
-              cursorColor: AppColors.kRed,
+              cursorColor: Colors.red,
               textDirection: TextDirection.ltr,
               controller: controller,
               focusNode: widget.focusNode,
@@ -522,9 +521,7 @@ class _Item extends StatelessWidget {
           Text(
             '${country?.dialCode ?? ''}',
             textDirection: TextDirection.ltr,
-            style: TextStyle(
-              color: AppColors.kGrey,
-            ),
+            style: TextStyle(color: Colors.grey),
           ),
         ],
       ),
