@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:io';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -139,15 +140,12 @@ class _ChatWidgetState extends State<ChatWidget> {
                     children: <Widget>[
                       Stack(
                         children: <Widget>[
-                          Padding(
-                            padding: const EdgeInsets.only(bottom: 48.0),
-                            child: Stack(
-                              children: <Widget>[
-                                ChattingWidget(
-                                  onChanged: _handleTapboxChanged,
-                                ),
-                              ],
-                            ),
+                          Stack(
+                            children: <Widget>[
+                              ChattingWidget(
+                                onChanged: _handleTapboxChanged,
+                              ),
+                            ],
                           ),
                           _active ? SizedBox(height: 0) : security(),
                         ],
@@ -277,95 +275,97 @@ class _ChattingWidgetState extends State<ChattingWidget> {
   //ScrollController scrollController  = ScrollController();
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: DashChat(
-        //    scrollController: scrollController,
-        key: _chatViewKey,
-        inverted: false,
-        onSend: onSend,
-        user: user,
-        height: deviceHeight(context) * 0.8,
-        inputDecoration: InputDecoration.collapsed(
-          hintText: "Type a message",
-          hintStyle: TextStyle(
+    return DashChat(
+      //    scrollController: scrollController,
+      key: _chatViewKey,
+      inverted: false,
+      onSend: onSend,
+      user: user,
+      height: MediaQuery.of(context).size.height - 105,
+      inputFooterBuilder: () {
+        return SafeArea(
+          child: SizedBox(),
+        );
+      },
+      inputDecoration: InputDecoration.collapsed(
+        hintText: "Type a message",
+        hintStyle: TextStyle(
+          color: AppColors.kGrey,
+          fontFamily: 'Helvetica',
+          fontWeight: FontWeight.w400,
+          fontSize: 14,
+        ),
+      ),
+      dateFormat: DateFormat('yyyy-MMM-dd'),
+      timeFormat: DateFormat('HH:mm'),
+      inputTextStyle: Theme.of(context).textTheme.body1,
+      messages: messages,
+      scrollToBottom: false,
+
+      //     onScrollToBottomPress :(){
+      //       scrollController.animateTo(
+      //    0.0,
+      //    curve: Curves.easeOut,
+      //    duration: const Duration(milliseconds: 300),
+      //  );
+      //     },
+      showTraillingBeforeSend: true,
+      trailing: <Widget>[
+        IconButton(
+          icon: SvgPicture.asset(
+            'assets/paperclip.svg',
+            height: 20,
+            width: 20,
             color: AppColors.kGrey,
-            fontFamily: 'Helvetica',
-            fontWeight: FontWeight.w400,
-            fontSize: 14,
           ),
+          onPressed: () {},
         ),
-        dateFormat: DateFormat('yyyy-MMM-dd'),
-        timeFormat: DateFormat('HH:mm'),
-        inputTextStyle: Theme.of(context).textTheme.body1,
-        messages: messages,
-        scrollToBottom: false,
-
-        //     onScrollToBottomPress :(){
-        //       scrollController.animateTo(
-        //    0.0,
-        //    curve: Curves.easeOut,
-        //    duration: const Duration(milliseconds: 300),
-        //  );
-        //     },
-        showTraillingBeforeSend: true,
-        trailing: <Widget>[
-          IconButton(
-            icon: SvgPicture.asset(
-              'assets/paperclip.svg',
-              height: 20,
-              width: 20,
-              color: AppColors.kGrey,
-            ),
-            onPressed: () {},
+        IconButton(
+          icon: Icon(
+            Icons.mic,
+            color: AppColors.kGrey,
           ),
-          IconButton(
-            icon: Icon(
-              Icons.mic,
-              color: AppColors.kGrey,
-            ),
-            onPressed: () {},
+          onPressed: () {},
+        ),
+      ],
+      sendButtonBuilder: (Function click) {
+        return IconButton(
+          icon: Icon(
+            FontAwesomeIcons.solidPaperPlane,
+            color: AppColors.kGrey,
           ),
-        ],
-        sendButtonBuilder: (Function click) {
-          return IconButton(
-            icon: Icon(
-              FontAwesomeIcons.solidPaperPlane,
-              color: AppColors.kGrey,
-            ),
-            onPressed: click,
-          );
-        },
+          onPressed: click,
+        );
+      },
 
-        avatarBuilder: (user) => CircleAvatar(
-          backgroundColor: AppColors.kLightGrey,
-          backgroundImage: AssetImage('assets/default_image.png'),
-        ),
-        showUserAvatar: false,
-        showAvatarForEveryMessage: true,
-        onPressAvatar: (ChatUser user) {
-          print("OnPressAvatar: ${user.name}");
-        },
-        onLongPressAvatar: (ChatUser user) {
-          print("OnLongPressAvatar: ${user.name}");
-        },
-        inputMaxLines: 5,
-        messageContainerPadding: EdgeInsets.only(left: 5.0, right: 5.0),
-        alwaysShowSend: false,
+      avatarBuilder: (user) => CircleAvatar(
+        backgroundColor: AppColors.kLightGrey,
+        backgroundImage: AssetImage('assets/default_image.png'),
+      ),
+      showUserAvatar: false,
+      showAvatarForEveryMessage: true,
+      onPressAvatar: (ChatUser user) {
+        print("OnPressAvatar: ${user.name}");
+      },
+      onLongPressAvatar: (ChatUser user) {
+        print("OnLongPressAvatar: ${user.name}");
+      },
+      inputMaxLines: 5,
+      messageContainerPadding: EdgeInsets.only(left: 5.0, right: 5.0),
+      alwaysShowSend: false,
 
-        inputContainerStyle: BoxDecoration(
-            borderRadius: BorderRadius.circular(10),
-            color: AppColors.kLightGrey),
-        onLoadEarlier: () {
-          print("laoding...");
-        },
-        shouldShowLoadEarlier: true,
-        messageContainerDecoration: BoxDecoration(
-          borderRadius: BorderRadius.only(
-              topLeft: Radius.circular(10),
-              topRight: Radius.circular(10),
-              bottomLeft: Radius.circular(10)),
-          color: AppColors.kLightGrey,
-        ),
+      inputContainerStyle: BoxDecoration(
+          borderRadius: BorderRadius.circular(10), color: AppColors.kLightGrey),
+      onLoadEarlier: () {
+        print("laoding...");
+      },
+      shouldShowLoadEarlier: true,
+      messageContainerDecoration: BoxDecoration(
+        borderRadius: BorderRadius.only(
+            topLeft: Radius.circular(10),
+            topRight: Radius.circular(10),
+            bottomLeft: Radius.circular(10)),
+        color: AppColors.kLightGrey,
       ),
     );
   }

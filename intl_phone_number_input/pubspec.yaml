@@ -9,6 +9,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  popup_menu: ^1.0.5
 
   provider: ^4.0.2
   libphonenumber: ^1.0.1
