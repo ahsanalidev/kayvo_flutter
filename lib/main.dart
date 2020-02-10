@@ -10,10 +10,13 @@ import 'package:kayvo_flutter/screens/editProfile.dart';
 import 'package:kayvo_flutter/screens/kayvo_contacts.dart';
 import 'package:kayvo_flutter/screens/newContact.dart';
 import 'package:kayvo_flutter/screens/pick_lang.dart';
+import 'package:kayvo_flutter/screens/privacy.dart';
 import 'package:kayvo_flutter/screens/profile.dart';
 import 'package:kayvo_flutter/screens/verifyNumber.dart';
 import 'package:kayvo_flutter/screens/welcome.dart';
 import 'package:kayvo_flutter/screens/newChat.dart';
+import 'package:kayvo_flutter/screens/account.dart';
+import 'package:kayvo_flutter/screens/blocked_contacts.dart';
 
 import 'elements/navbar.dart';
 import 'utilities/styles.dart';
@@ -101,6 +104,22 @@ class MyApp extends StatelessWidget {
                   builder: (_) => LanguageList(),
                   settings: settings,
                 );
+              case '/account':
+                return CupertinoPageRoute(
+                  builder: (_) => Account(),
+                  settings: settings,
+                );
+
+              case '/blockedContacts':
+                return CupertinoPageRoute(
+                  builder: (_) => BlockedContacts(),
+                  settings: settings,
+                );
+              case '/privacy':
+                return CupertinoPageRoute(
+                  builder: (_) => Privacy(),
+                  settings: settings,
+                );
               default:
                 return CupertinoPageRoute(
                   builder: (_) => Welcome(),
@@ -177,6 +196,21 @@ class MyApp extends StatelessWidget {
               case '/languagePicker':
                 return MaterialPageRoute(
                   builder: (_) => LanguageList(),
+                  settings: settings,
+                );
+              case '/account':
+                return MaterialPageRoute(
+                  builder: (_) => Account(),
+                  settings: settings,
+                );
+              case '/blockedContacts':
+                return MaterialPageRoute(
+                  builder: (_) => BlockedContacts(),
+                  settings: settings,
+                );
+              case '/privacy':
+                return MaterialPageRoute(
+                  builder: (_) => Privacy(),
                   settings: settings,
                 );
               default:

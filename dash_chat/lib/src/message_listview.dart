@@ -30,7 +30,6 @@ class MessageListView extends StatefulWidget {
   final Widget Function() showLoadEarlierWidget;
   final Function onLoadEarlier;
   final Function(bool) defaultLoadCallback;
-  final GlobalKey btnKey = GlobalKey();
   final GlobalKey gstKey = GlobalKey();
 
   MessageListView({
@@ -71,6 +70,8 @@ class MessageListView extends StatefulWidget {
 }
 
 class _MessageListViewState extends State<MessageListView> {
+  final GlobalKey btnKey = GlobalKey();
+
   double previousPixelPostion = 0.0;
 
   bool scrollNotificationFunc(ScrollNotification scrollNotification) {
@@ -222,80 +223,81 @@ class _MessageListViewState extends State<MessageListView> {
                                         ),
                                 ),
                                 GestureDetector(
+                                  key: btnKey,
                                   onLongPress: () {
-                                    if (widget.onLongPressMessage != null) {
-                                      widget.onLongPressMessage(
-                                          widget.messages[i]);
-                                    } else {
-                                      //onShow();
-                                      // Flushbar(
-                                      //   isDismissible: true,
-                                      //   messageText: Row(
-                                      //       mainAxisSize: MainAxisSize.min,
-                                      //       children: <Widget>[
-                                      //         IconButton(
-                                      //           icon: Icon(Icons.star_border),
-                                      //         ),
-                                      //         IconButton(
-                                      //           icon: Icon(Icons.forward),
-                                      //         ),
-                                      //         IconButton(
-                                      //           icon: Icon(Icons.arrow_back),
-                                      //         ),
-                                      //         IconButton(
-                                      //           icon: Icon(Icons.delete),
-                                      //         ),
-                                      //       ]),
-                                      //   flushbarStyle: FlushbarStyle.FLOATING,
-                                      //   maxWidth:
-                                      //       MediaQuery.of(context).size.width *
-                                      //           0.8,
-                                      //   backgroundColor: Colors.red,
-                                      //   padding: EdgeInsets.all(8.0),
-                                      //   flushbarPosition:
-                                      //       FlushbarPosition.BOTTOM,
-                                      // )..show(context);
+                                    // if (widget.onLongPressMessage != null) {
+                                    //   widget.onLongPressMessage(
+                                    //       widget.messages[i]);
+                                    // } else {
+                                    onShow();
+                                    // Flushbar(
+                                    //   isDismissible: true,
+                                    //   messageText: Row(
+                                    //       mainAxisSize: MainAxisSize.min,
+                                    //       children: <Widget>[
+                                    //         IconButton(
+                                    //           icon: Icon(Icons.star_border),
+                                    //         ),
+                                    //         IconButton(
+                                    //           icon: Icon(Icons.forward),
+                                    //         ),
+                                    //         IconButton(
+                                    //           icon: Icon(Icons.arrow_back),
+                                    //         ),
+                                    //         IconButton(
+                                    //           icon: Icon(Icons.delete),
+                                    //         ),
+                                    //       ]),
+                                    //   flushbarStyle: FlushbarStyle.FLOATING,
+                                    //   maxWidth:
+                                    //       MediaQuery.of(context).size.width *
+                                    //           0.8,
+                                    //   backgroundColor: Colors.red,
+                                    //   padding: EdgeInsets.all(8.0),
+                                    //   flushbarPosition:
+                                    //       FlushbarPosition.BOTTOM,
+                                    // )..show(context);
 
-                                      // showBottomSheet(
-                                      //     context: context,
-                                      //     builder: (context) => Container(
-                                      //           child: Row(
-                                      //             mainAxisSize:
-                                      //                 MainAxisSize.min,
-                                      //             children: <Widget>[
-                                      //               IconButton(
-                                      //                 icon: Icon(
-                                      //                     Icons.star_border),
-                                      //               ),
-                                      //               IconButton(
-                                      //                 icon: Icon(Icons.forward),
-                                      //               ),
-                                      //               IconButton(
-                                      //                 icon: Icon(
-                                      //                     Icons.arrow_back),
-                                      //               ),
-                                      //               IconButton(
-                                      //                 icon: Icon(Icons.delete),
-                                      //               ),
-                                      // ListTile(
-                                      //   leading: Icon(
-                                      //       Icons.content_copy),
-                                      //   title: Text(
-                                      //       "Copy to clipboard"),
-                                      //   onTap: () {
-                                      //     Clipboard.setData(
-                                      //         ClipboardData(
-                                      //             text: widget
-                                      //                 .messages[i]
-                                      //                 .text));
-                                      //     Navigator.pop(context);
-                                      //   },
-                                      // )
-                                      //     ],
-                                      //   ),
-                                      // )
-                                      // );
-                                    }
+                                    // showBottomSheet(
+                                    //     context: context,
+                                    //     builder: (context) => Container(
+                                    //           child: Row(
+                                    //             mainAxisSize:
+                                    //                 MainAxisSize.min,
+                                    //             children: <Widget>[
+                                    //               IconButton(
+                                    //                 icon: Icon(
+                                    //                     Icons.star_border),
+                                    //               ),
+                                    //               IconButton(
+                                    //                 icon: Icon(Icons.forward),
+                                    //               ),
+                                    //               IconButton(
+                                    //                 icon: Icon(
+                                    //                     Icons.arrow_back),
+                                    //               ),
+                                    //               IconButton(
+                                    //                 icon: Icon(Icons.delete),
+                                    //               ),
+                                    // ListTile(
+                                    //   leading: Icon(
+                                    //       Icons.content_copy),
+                                    //   title: Text(
+                                    //       "Copy to clipboard"),
+                                    //   onTap: () {
+                                    //     Clipboard.setData(
+                                    //         ClipboardData(
+                                    //             text: widget
+                                    //                 .messages[i]
+                                    //                 .text));
+                                    //     Navigator.pop(context);
+                                    //   },
+                                    // )
+                                    //     ],
+                                    //   ),
+                                    // )
+                                    // );
+                                    //   }
                                   },
                                   child: widget.messageBuilder != null
                                       ? widget
@@ -399,7 +401,7 @@ class _MessageListViewState extends State<MessageListView> {
             color: Colors.white,
           ))
     ], onClickMenu: onClickMenu, onDismiss: onDismiss);
-    menu.show(widgetKey: widget.btnKey);
+    menu.show(widgetKey: btnKey);
   }
 
   void onClickMenu(MenuItemProvider item) {}
