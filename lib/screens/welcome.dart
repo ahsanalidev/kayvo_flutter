@@ -79,6 +79,7 @@ class Welcome extends StatelessWidget {
                   height: deviceHeight(context) * 0.04,
                 ),
                 Button(
+                  "Agree & Continue",
                   onPressed: () => onPress(context),
                 )
               ],
