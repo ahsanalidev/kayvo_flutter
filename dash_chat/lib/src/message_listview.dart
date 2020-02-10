@@ -30,6 +30,8 @@ class MessageListView extends StatefulWidget {
   final Widget Function() showLoadEarlierWidget;
   final Function onLoadEarlier;
   final Function(bool) defaultLoadCallback;
+  final GlobalKey btnKey = GlobalKey();
+  final GlobalKey gstKey = GlobalKey();
 
   MessageListView({
     this.showLoadEarlierWidget,
@@ -97,7 +99,7 @@ class _MessageListViewState extends State<MessageListView> {
   @override
   Widget build(BuildContext context) {
     DateTime currentDate;
-
+    PopupMenu.context = context;
     print(widget.dateFormat != null);
 
     return Flexible(
@@ -225,30 +227,74 @@ class _MessageListViewState extends State<MessageListView> {
                                       widget.onLongPressMessage(
                                           widget.messages[i]);
                                     } else {
-                                      showBottomSheet(
-                                          context: context,
-                                          builder: (context) => Container(
-                                                child: Column(
-                                                  mainAxisSize:
-                                                      MainAxisSize.min,
-                                                  children: <Widget>[
-                                                    ListTile(
-                                                      leading: Icon(
-                                                          Icons.content_copy),
-                                                      title: Text(
-                                                          "Copy to clipboard"),
-                                                      onTap: () {
-                                                        Clipboard.setData(
-                                                            ClipboardData(
-                                                                text: widget
-                                                                    .messages[i]
-                                                                    .text));
-                                                        Navigator.pop(context);
-                                                      },
-                                                    )
-                                                  ],
-                                                ),
-                                              ));
+                                      //onShow();
+                                      // Flushbar(
+                                      //   isDismissible: true,
+                                      //   messageText: Row(
+                                      //       mainAxisSize: MainAxisSize.min,
+                                      //       children: <Widget>[
+                                      //         IconButton(
+                                      //           icon: Icon(Icons.star_border),
+                                      //         ),
+                                      //         IconButton(
+                                      //           icon: Icon(Icons.forward),
+                                      //         ),
+                                      //         IconButton(
+                                      //           icon: Icon(Icons.arrow_back),
+                                      //         ),
+                                      //         IconButton(
+                                      //           icon: Icon(Icons.delete),
+                                      //         ),
+                                      //       ]),
+                                      //   flushbarStyle: FlushbarStyle.FLOATING,
+                                      //   maxWidth:
+                                      //       MediaQuery.of(context).size.width *
+                                      //           0.8,
+                                      //   backgroundColor: Colors.red,
+                                      //   padding: EdgeInsets.all(8.0),
+                                      //   flushbarPosition:
+                                      //       FlushbarPosition.BOTTOM,
+                                      // )..show(context);
+
+                                      // showBottomSheet(
+                                      //     context: context,
+                                      //     builder: (context) => Container(
+                                      //           child: Row(
+                                      //             mainAxisSize:
+                                      //                 MainAxisSize.min,
+                                      //             children: <Widget>[
+                                      //               IconButton(
+                                      //                 icon: Icon(
+                                      //                     Icons.star_border),
+                                      //               ),
+                                      //               IconButton(
+                                      //                 icon: Icon(Icons.forward),
+                                      //               ),
+                                      //               IconButton(
+                                      //                 icon: Icon(
+                                      //                     Icons.arrow_back),
+                                      //               ),
+                                      //               IconButton(
+                                      //                 icon: Icon(Icons.delete),
+                                      //               ),
+                                      // ListTile(
+                                      //   leading: Icon(
+                                      //       Icons.content_copy),
+                                      //   title: Text(
+                                      //       "Copy to clipboard"),
+                                      //   onTap: () {
+                                      //     Clipboard.setData(
+                                      //         ClipboardData(
+                                      //             text: widget
+                                      //                 .messages[i]
+                                      //                 .text));
+                                      //     Navigator.pop(context);
+                                      //   },
+                                      // )
+                                      //     ],
+                                      //   ),
+                                      // )
+                                      // );
                                     }
                                   },
                                   child: widget.messageBuilder != null
@@ -331,4 +377,32 @@ class _MessageListViewState extends State<MessageListView> {
       ),
     );
   }
+
+  void onShow() {
+    PopupMenu menu = PopupMenu(items: [
+      MenuItem(
+          title: 'Mail',
+          image: Icon(
+            Icons.mail,
+            color: Colors.white,
+          )),
+      MenuItem(
+          title: 'Setting',
+          image: Icon(
+            Icons.settings,
+            color: Colors.white,
+          )),
+      MenuItem(
+          title: 'PopupMenu',
+          image: Icon(
+            Icons.menu,
+            color: Colors.white,
+          ))
+    ], onClickMenu: onClickMenu, onDismiss: onDismiss);
+    menu.show(widgetKey: widget.btnKey);
+  }
+
+  void onClickMenu(MenuItemProvider item) {}
+
+  void onDismiss() {}
 }

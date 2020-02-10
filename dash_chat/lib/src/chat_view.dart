@@ -352,7 +352,8 @@ class DashChatState extends State<DashChat> {
     textController = widget.textController ?? TextEditingController();
 
     Timer(Duration(milliseconds: 500), () {
-      double initPos = widget.inverted ? 0.0 : scrollController.position.maxScrollExtent;
+      double initPos =
+          widget.inverted ? 0.0 : scrollController.position.maxScrollExtent;
       scrollController.jumpTo(initPos);
 
       scrollController.addListener(() {
