@@ -4,6 +4,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:kayvo_flutter/screens/addNumber.dart';
 import 'package:kayvo_flutter/screens/archieve_chat.dart';
+import 'package:kayvo_flutter/screens/changeNumber.dart';
 import 'package:kayvo_flutter/screens/chat.dart';
 import 'package:kayvo_flutter/screens/contactInfo.dart';
 import 'package:kayvo_flutter/screens/editProfile.dart';
@@ -28,199 +29,210 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        debugShowCheckedModeBanner: false,
-        theme: kTheme,
-        initialRoute: '/',
-        onGenerateRoute: (RouteSettings settings) {
-          if (Platform.isIOS) {
-            switch (settings.name) {
-              case '/':
-                return CupertinoPageRoute(
-                  builder: (_) => Welcome(),
-                  settings: settings,
-                );
-              case '/addNumber':
-                return CupertinoPageRoute(
-                  builder: (_) => AddNumber(),
-                  settings: settings,
-                );
-              case '/navBar':
-                return CupertinoPageRoute(
-                  builder: (_) => NavBar(),
-                  settings: settings,
-                );
-              case '/verifyNumber':
-                return CupertinoPageRoute(
-                  builder: (_) => VerifyNumber(),
-                  settings: settings,
-                );
-              case '/editProfile':
-                return CupertinoPageRoute(
-                  builder: (_) => EditProfile(),
-                  settings: settings,
-                );
-              case '/kayvocontacts':
-                return CupertinoPageRoute(
-                  builder: (_) => Kayvo_Contacts(),
-                  settings: settings,
-                );
-              case '/newChat':
-                return CupertinoPageRoute(
-                  builder: (_) => New_Chat(),
-                  settings: settings,
-                );
-              case '/archieveChat':
-                return CupertinoPageRoute(
-                  builder: (_) => ArchieveChat(),
-                  settings: settings,
-                );
-              case '/chatWidget':
-                return CupertinoPageRoute(
-                  builder: (_) => ChatWidget(),
-                  settings: settings,
-                );
-              case '/newChat':
-                return CupertinoPageRoute(
-                  builder: (_) => New_Chat(),
-                  settings: settings,
-                );
-              case '/newContact':
-                return CupertinoPageRoute(
-                  builder: (_) => NewContact(),
-                  settings: settings,
-                );
-              case '/profile':
-                return CupertinoPageRoute(
-                  builder: (_) => Profile(),
-                  settings: settings,
-                );
-              case '/contactInfo':
-                return CupertinoPageRoute(
-                  builder: (_) => ConactInfo(),
-                  settings: settings,
-                );
-              case '/languagePicker':
-                return CupertinoPageRoute(
-                  builder: (_) => LanguageList(),
-                  settings: settings,
-                );
-              case '/account':
-                return CupertinoPageRoute(
-                  builder: (_) => Account(),
-                  settings: settings,
-                );
+      debugShowCheckedModeBanner: false,
+      theme: kTheme,
+      initialRoute: '/',
+      onGenerateRoute: (RouteSettings settings) {
+        // if (Platform.isIOS) {
+        switch (settings.name) {
+          case '/':
+            return CupertinoPageRoute(
+              builder: (_) => Welcome(),
+              settings: settings,
+            );
+          case '/addNumber':
+            return CupertinoPageRoute(
+              builder: (_) => AddNumber(),
+              settings: settings,
+            );
+          case '/navBar':
+            return CupertinoPageRoute(
+              builder: (_) => NavBar(),
+              settings: settings,
+            );
+          case '/verifyNumber':
+            return CupertinoPageRoute(
+              builder: (_) => VerifyNumber(),
+              settings: settings,
+            );
+          case '/editProfile':
+            return CupertinoPageRoute(
+              builder: (_) => EditProfile(),
+              settings: settings,
+            );
+          case '/kayvocontacts':
+            return CupertinoPageRoute(
+              builder: (_) => Kayvo_Contacts(),
+              settings: settings,
+            );
+          case '/newChat':
+            return CupertinoPageRoute(
+              builder: (_) => New_Chat(),
+              settings: settings,
+            );
+          case '/archieveChat':
+            return CupertinoPageRoute(
+              builder: (_) => ArchieveChat(),
+              settings: settings,
+            );
+          case '/chatWidget':
+            return CupertinoPageRoute(
+              builder: (_) => ChatWidget(),
+              settings: settings,
+            );
+          case '/newChat':
+            return CupertinoPageRoute(
+              builder: (_) => New_Chat(),
+              settings: settings,
+            );
+          case '/newContact':
+            return CupertinoPageRoute(
+              builder: (_) => NewContact(),
+              settings: settings,
+            );
+          case '/profile':
+            return CupertinoPageRoute(
+              builder: (_) => Profile(),
+              settings: settings,
+            );
+          case '/contactInfo':
+            return CupertinoPageRoute(
+              builder: (_) => ConactInfo(),
+              settings: settings,
+            );
+          case '/languagePicker':
+            return CupertinoPageRoute(
+              builder: (_) => LanguageList(),
+              settings: settings,
+            );
+          case '/account':
+            return CupertinoPageRoute(
+              builder: (_) => Account(),
+              settings: settings,
+            );
 
-              case '/blockedContacts':
-                return CupertinoPageRoute(
-                  builder: (_) => BlockedContacts(),
-                  settings: settings,
-                );
-              case '/privacy':
-                return CupertinoPageRoute(
-                  builder: (_) => Privacy(),
-                  settings: settings,
-                );
-              default:
-                return CupertinoPageRoute(
-                  builder: (_) => Welcome(),
-                  settings: settings,
-                );
-            }
-          } else {
-            switch (settings.name) {
-              case '/':
-                return MaterialPageRoute(
-                  builder: (_) => Welcome(),
-                  settings: settings,
-                );
-              case '/addNumber':
-                return MaterialPageRoute(
-                  builder: (_) => AddNumber(),
-                  settings: settings,
-                );
-              case '/navBar':
-                return MaterialPageRoute(
-                  builder: (_) => NavBar(),
-                  settings: settings,
-                );
-              case '/verifyNumber':
-                return MaterialPageRoute(
-                  builder: (_) => VerifyNumber(),
-                  settings: settings,
-                );
-              case '/editProfile':
-                return MaterialPageRoute(
-                  builder: (_) => EditProfile(),
-                  settings: settings,
-                );
-              case '/kayvocontacts':
-                return MaterialPageRoute(
-                  builder: (_) => Kayvo_Contacts(),
-                  settings: settings,
-                );
-              case '/newChat':
-                return MaterialPageRoute(
-                  builder: (_) => New_Chat(),
-                  settings: settings,
-                );
-              case '/archieveChat':
-                return MaterialPageRoute(
-                  builder: (_) => ArchieveChat(),
-                  settings: settings,
-                );
-              case '/chatWidget':
-                return MaterialPageRoute(
-                  builder: (_) => ChatWidget(),
-                  settings: settings,
-                );
-              case '/newChat':
-                return MaterialPageRoute(
-                  builder: (_) => New_Chat(),
-                  settings: settings,
-                );
-              case '/newContact':
-                return MaterialPageRoute(
-                  builder: (_) => NewContact(),
-                  settings: settings,
-                );
-              case '/profile':
-                return MaterialPageRoute(
-                  builder: (_) => Profile(),
-                  settings: settings,
-                );
-              case '/contactInfo':
-                return MaterialPageRoute(
-                  builder: (_) => ConactInfo(),
-                  settings: settings,
-                );
-              case '/languagePicker':
-                return MaterialPageRoute(
-                  builder: (_) => LanguageList(),
-                  settings: settings,
-                );
-              case '/account':
-                return MaterialPageRoute(
-                  builder: (_) => Account(),
-                  settings: settings,
-                );
-              case '/blockedContacts':
-                return MaterialPageRoute(
-                  builder: (_) => BlockedContacts(),
-                  settings: settings,
-                );
-              case '/privacy':
-                return MaterialPageRoute(
-                  builder: (_) => Privacy(),
-                  settings: settings,
-                );
-              default:
-                return MaterialPageRoute(
-                  builder: (_) => Welcome(),
-                  settings: settings,
-                );
-            }
-          }
-        });
+          case '/blockedContacts':
+            return CupertinoPageRoute(
+              builder: (_) => BlockedContacts(),
+              settings: settings,
+            );
+          case '/privacy':
+            return CupertinoPageRoute(
+              builder: (_) => Privacy(),
+              settings: settings,
+            );
+          case '/changeNumber':
+            return CupertinoPageRoute(
+              builder: (_) => ChangeNumber(),
+              settings: settings,
+            );
+          default:
+            return CupertinoPageRoute(
+              builder: (_) => Welcome(),
+              settings: settings,
+            );
+          //   }
+          // } else {
+          //   switch (settings.name) {
+          //     case '/':
+          //       return MaterialPageRoute(
+          //         builder: (_) => Welcome(),
+          //         settings: settings,
+          //       );
+          //     case '/addNumber':
+          //       return MaterialPageRoute(
+          //         builder: (_) => AddNumber(),
+          //         settings: settings,
+          //       );
+          //     case '/navBar':
+          //       return MaterialPageRoute(
+          //         builder: (_) => NavBar(),
+          //         settings: settings,
+          //       );
+          //     case '/verifyNumber':
+          //       return MaterialPageRoute(
+          //         builder: (_) => VerifyNumber(),
+          //         settings: settings,
+          //       );
+          //     case '/editProfile':
+          //       return MaterialPageRoute(
+          //         builder: (_) => EditProfile(),
+          //         settings: settings,
+          //       );
+          //     case '/kayvocontacts':
+          //       return MaterialPageRoute(
+          //         builder: (_) => Kayvo_Contacts(),
+          //         settings: settings,
+          //       );
+          //     case '/newChat':
+          //       return MaterialPageRoute(
+          //         builder: (_) => New_Chat(),
+          //         settings: settings,
+          //       );
+          //     case '/archieveChat':
+          //       return MaterialPageRoute(
+          //         builder: (_) => ArchieveChat(),
+          //         settings: settings,
+          //       );
+          //     case '/chatWidget':
+          //       return MaterialPageRoute(
+          //         builder: (_) => ChatWidget(),
+          //         settings: settings,
+          //       );
+          //     case '/newChat':
+          //       return MaterialPageRoute(
+          //         builder: (_) => New_Chat(),
+          //         settings: settings,
+          //       );
+          //     case '/newContact':
+          //       return MaterialPageRoute(
+          //         builder: (_) => NewContact(),
+          //         settings: settings,
+          //       );
+          //     case '/profile':
+          //       return MaterialPageRoute(
+          //         builder: (_) => Profile(),
+          //         settings: settings,
+          //       );
+          //     case '/contactInfo':
+          //       return MaterialPageRoute(
+          //         builder: (_) => ConactInfo(),
+          //         settings: settings,
+          //       );
+          //     case '/languagePicker':
+          //       return MaterialPageRoute(
+          //         builder: (_) => LanguageList(),
+          //         settings: settings,
+          //       );
+          //     case '/account':
+          //       return MaterialPageRoute(
+          //         builder: (_) => Account(),
+          //         settings: settings,
+          //       );
+          //     case '/blockedContacts':
+          //       return MaterialPageRoute(
+          //         builder: (_) => BlockedContacts(),
+          //         settings: settings,
+          //       );
+          //     case '/privacy':
+          //       return MaterialPageRoute(
+          //         builder: (_) => Privacy(),
+          //         settings: settings,
+          //       );
+          //     case '/changeNumber':
+          //       return CupertinoPageRoute(
+          //         builder: (_) => ChangeNumber(),
+          //         settings: settings,
+          //       );
+          //     default:
+          //       return MaterialPageRoute(
+          //         builder: (_) => Welcome(),
+          //         settings: settings,
+          //       );
+          //   }
+        }
+      },
+    );
   }
 }
 
