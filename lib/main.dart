@@ -6,6 +6,7 @@ import 'package:kayvo_flutter/screens/addNumber.dart';
 import 'package:kayvo_flutter/screens/archieve_chat.dart';
 import 'package:kayvo_flutter/screens/chat.dart';
 import 'package:kayvo_flutter/screens/contactInfo.dart';
+import 'package:kayvo_flutter/screens/deletemyaccount.dart';
 import 'package:kayvo_flutter/screens/editProfile.dart';
 import 'package:kayvo_flutter/screens/kayvo_contacts.dart';
 import 'package:kayvo_flutter/screens/newContact.dart';
@@ -120,6 +121,12 @@ class MyApp extends StatelessWidget {
                   builder: (_) => Privacy(),
                   settings: settings,
                 );
+
+              case '/deletemyaccount':
+                return CupertinoPageRoute(
+                  builder: (_) => DeleteMyAccount(),
+                  settings: settings,
+                );
               default:
                 return CupertinoPageRoute(
                   builder: (_) => Welcome(),
@@ -211,6 +218,11 @@ class MyApp extends StatelessWidget {
               case '/privacy':
                 return MaterialPageRoute(
                   builder: (_) => Privacy(),
+                  settings: settings,
+                );
+              case '/deletemyaccount':
+                return MaterialPageRoute(
+                  builder: (_) => DeleteMyAccount(),
                   settings: settings,
                 );
               default:

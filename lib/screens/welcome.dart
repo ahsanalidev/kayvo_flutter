@@ -78,13 +78,14 @@ class Welcome extends StatelessWidget {
                 SizedBox(
                   height: deviceHeight(context) * 0.04,
                 ),
-                Button(
-                  onPressed: () => onPress(context),
-                )
               ],
             ),
           ],
         ),
+        floatingActionButton: Button(
+          onPressed: () => onPress(context),
+        ),
+        floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       ),
     );
   }

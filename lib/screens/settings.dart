@@ -87,7 +87,9 @@ class Settings extends StatelessWidget {
                   height: deviceHeight(context) * 0.05,
                 ),
                 ListTile(
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.pushNamed(context, '/account');
+                  },
                   leading: SvgPicture.asset(
                     "assets/user-circle.svg",
                     width: 24,

@@ -8,7 +8,13 @@ class Account extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: Icon(Icons.arrow_back_ios),
+        leading: IconButton(
+          icon: Icon(
+            Icons.arrow_back_ios,
+            color: AppColors.kBlack,
+          ),
+          onPressed: () => Navigator.pop(context),
+        ),
         title: Text(
           "Account",
           style: Theme.of(context).textTheme.title,
@@ -19,38 +25,46 @@ class Account extends StatelessWidget {
           ListTile(
             title: Text(
               "Privacy",
-              style: Theme.of(context).textTheme.body1,
+              style: Theme.of(context).textTheme.subhead,
             ),
             trailing: Icon(
-              Icons.arrow_forward_ios,
+              Icons.keyboard_arrow_right,
               color: AppColors.kGrey,
             ),
+            onTap: () => Navigator.pushNamed(context, '/privacy'),
           ),
-          Divider(
-            color: AppColors.kBlack,
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 16),
+            child: Divider(
+              color: AppColors.kBlack,
+            ),
           ),
           ListTile(
             title: Text(
               "Change Number",
-              style: Theme.of(context).textTheme.body1,
+              style: Theme.of(context).textTheme.subhead,
             ),
             trailing: Icon(
-              Icons.arrow_forward_ios,
+              Icons.keyboard_arrow_right,
               color: AppColors.kGrey,
             ),
           ),
-          Divider(
-            color: AppColors.kBlack,
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 16),
+            child: Divider(
+              color: AppColors.kBlack,
+            ),
           ),
           ListTile(
             title: Text(
               "Delete My Account",
-              style: Theme.of(context).textTheme.body1,
+              style: Theme.of(context).textTheme.subhead,
             ),
             trailing: Icon(
-              Icons.arrow_forward_ios,
+              Icons.keyboard_arrow_right,
               color: AppColors.kGrey,
             ),
+            onTap: () => Navigator.pushNamed(context, '/deletemyaccount'),
           )
         ],
       ),

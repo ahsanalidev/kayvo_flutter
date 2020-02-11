@@ -9,7 +9,13 @@ class BlockedContacts extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: Icon(Icons.arrow_forward_ios),
+        leading: IconButton(
+          icon: Icon(
+            Icons.arrow_back_ios,
+            color: AppColors.kBlack,
+          ),
+          onPressed: () => Navigator.pop(context),
+        ),
         title: Text(
           "Blocked Contacts",
           style: Theme.of(context).textTheme.title,
@@ -32,8 +38,8 @@ class BlockedContacts extends StatelessWidget {
             ),
             trailing: SvgPicture.asset(
               'assets/minus-circle.svg',
-              height: 15,
-              width: 15,
+              height: 25,
+              width: 25,
               color: AppColors.kRed,
             ),
           ),
@@ -52,8 +58,8 @@ class BlockedContacts extends StatelessWidget {
             ),
             trailing: SvgPicture.asset(
               'assets/minus-circle.svg',
-              height: 15,
-              width: 15,
+              height: 25,
+              width: 25,
               color: AppColors.kRed,
             ),
           ),
