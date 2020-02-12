@@ -78,14 +78,15 @@ class Welcome extends StatelessWidget {
                 SizedBox(
                   height: deviceHeight(context) * 0.04,
                 ),
-                Button(
-                  "Agree & Continue",
-                  onPressed: () => onPress(context),
-                )
               ],
             ),
           ],
         ),
+        floatingActionButton: Button(
+          "Agree & Continue",
+          onPressed: () => onPress(context),
+        ),
+        floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       ),
     );
   }

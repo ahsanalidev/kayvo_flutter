@@ -8,7 +8,13 @@ class Privacy extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: Icon(Icons.arrow_back_ios),
+        leading: IconButton(
+          icon: Icon(
+            Icons.arrow_back_ios,
+            color: AppColors.kBlack,
+          ),
+          onPressed: () => Navigator.pop(context),
+        ),
         title: Text(
           "Privacy",
           style: Theme.of(context).textTheme.title,
@@ -16,72 +22,104 @@ class Privacy extends StatelessWidget {
       ),
       body: ListView(
         children: <Widget>[
-          Center(
-            child: Image.asset('assets/privacy.png'),
+          Padding(
+            padding: const EdgeInsets.all(32.0),
+            child: SizedBox(
+              width: 120,
+              height: 150,
+              child: Center(
+                child: Image.asset('assets/privacy.png'),
+              ),
+            ),
           ),
           ListTile(
             title: Text(
               "Who can see your profile",
-              style: Theme.of(context).textTheme.body1,
+              style: Theme.of(context)
+                  .textTheme
+                  .title
+                  .copyWith(fontWeight: FontWeight.w300),
             ),
           ),
           ListTile(
             title: Text(
               "Profile Photo",
-              style: Theme.of(context).textTheme.body1,
+              style: Theme.of(context).textTheme.subhead,
             ),
-            trailing: Row(
-              children: <Widget>[
-                Text("Everyone"),
-                Icon(
-                  Icons.arrow_forward_ios,
-                  color: AppColors.kGrey,
-                ),
-              ],
+            trailing: Container(
+              width: 90,
+              child: Row(
+                children: <Widget>[
+                  Text("Everyone", style: Theme.of(context).textTheme.body1),
+                  Icon(
+                    Icons.keyboard_arrow_right,
+                    color: AppColors.kGrey,
+                  ),
+                ],
+              ),
             ),
           ),
-          Divider(
-            color: AppColors.kBlack,
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 16),
+            child: Divider(
+              color: AppColors.kBlack,
+            ),
           ),
           ListTile(
             title: Text(
               "About",
-              style: Theme.of(context).textTheme.body1,
+              style: Theme.of(context).textTheme.subhead,
             ),
-            trailing: Row(
-              children: <Widget>[
-                Text("Everyone"),
-                Icon(
-                  Icons.arrow_forward_ios,
-                  color: AppColors.kGrey,
-                ),
-              ],
+            trailing: Container(
+              width: 90,
+              child: Row(
+                children: <Widget>[
+                  Text("Everyone", style: Theme.of(context).textTheme.body1),
+                  Icon(
+                    Icons.keyboard_arrow_right,
+                    color: AppColors.kGrey,
+                  ),
+                ],
+              ),
             ),
           ),
-          Divider(
-            color: AppColors.kBlack,
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 16),
+            child: Divider(
+              color: AppColors.kBlack,
+            ),
           ),
           ListTile(
             title: Text(
               "Status",
-              style: Theme.of(context).textTheme.body1,
+              style: Theme.of(context).textTheme.subhead,
             ),
-            trailing: Row(
-              children: <Widget>[
-                Text("Everyone"),
-                Icon(
-                  Icons.arrow_forward_ios,
-                  color: AppColors.kGrey,
-                ),
-              ],
+            trailing: Container(
+              width: 90,
+              child: Row(
+                children: <Widget>[
+                  Text("Everyone", style: Theme.of(context).textTheme.body1),
+                  Icon(
+                    Icons.keyboard_arrow_right,
+                    color: AppColors.kGrey,
+                  ),
+                ],
+              ),
             ),
           ),
           ListTile(
-            title: Text("Blocked Contacts"),
+            title: Text(
+              "Blocked Contacts",
+              style: Theme.of(context)
+                  .textTheme
+                  .title
+                  .copyWith(fontWeight: FontWeight.w300),
+            ),
             trailing: Icon(
-              Icons.arrow_forward_ios,
+              Icons.keyboard_arrow_right,
               color: AppColors.kGrey,
             ),
+            onTap: () => Navigator.pushNamed(context, '/blockedContacts'),
           )
         ],
       ),

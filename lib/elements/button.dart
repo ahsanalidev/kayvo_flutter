@@ -9,7 +9,7 @@ class Button extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: deviceWidth(context) * 0.9,
-      height: deviceHeight(context) * 0.08,
+      height: 52,
       child: FlatButton(
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5)),
         color: AppColors.kRed,

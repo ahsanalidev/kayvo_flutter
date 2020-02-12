@@ -205,9 +205,11 @@ class ConactInfo extends StatelessWidget {
               title: Text("Mute Chat"),
             ),
             ListTile(
-              onTap: () {},
+              onTap: () {
+                Navigator.pushNamed(context, '/blockedContacts');
+              },
               leading: Icon(Icons.block),
-              title: Text("Block"),
+              title: Text("Block Contact"),
             ),
             ListTile(
               onTap: () {},

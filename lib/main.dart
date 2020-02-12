@@ -9,6 +9,7 @@ import 'package:kayvo_flutter/screens/changeNumber.dart';
 import 'package:kayvo_flutter/screens/chat.dart';
 import 'package:kayvo_flutter/screens/chatBackup.dart';
 import 'package:kayvo_flutter/screens/contactInfo.dart';
+import 'package:kayvo_flutter/screens/deletemyaccount.dart';
 import 'package:kayvo_flutter/screens/editProfile.dart';
 import 'package:kayvo_flutter/screens/kayvo_contacts.dart';
 import 'package:kayvo_flutter/screens/newContact.dart';
