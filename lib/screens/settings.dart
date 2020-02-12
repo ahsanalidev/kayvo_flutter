@@ -99,7 +99,7 @@ class Settings extends StatelessWidget {
                 ),
                 ListTile(
                   onTap: () {
-                    Navigator.pushNamed(context, '/chatWidgetX');
+                    Navigator.pushNamed(context, '/chats');
                   },
                   leading: SvgPicture.asset(
                     "assets/comment-dots.svg",

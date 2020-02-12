@@ -8,6 +8,7 @@ import 'package:kayvo_flutter/screens/archieve_chat.dart';
 import 'package:kayvo_flutter/screens/changeNumber.dart';
 import 'package:kayvo_flutter/screens/chat.dart';
 import 'package:kayvo_flutter/screens/chatBackup.dart';
+import 'package:kayvo_flutter/screens/chats.dart';
 import 'package:kayvo_flutter/screens/contactInfo.dart';
 import 'package:kayvo_flutter/screens/deletemyaccount.dart';
 import 'package:kayvo_flutter/screens/editProfile.dart';
@@ -99,6 +100,7 @@ class MyApp extends StatelessWidget {
                   builder: (_) => Profile(),
                   settings: settings,
                 );
+
               case '/contactInfo':
                 return CupertinoPageRoute(
                   builder: (_) => ConactInfo(),
@@ -134,6 +136,11 @@ class MyApp extends StatelessWidget {
                 return CupertinoPageRoute(
                   builder: (_) => AddNewNumber(),
                 );
+              //DeleteMyAccount
+              case '/deleteMyAccount':
+                return CupertinoPageRoute(
+                  builder: (_) => DeleteMyAccount(),
+                );
               case '/chatWidgetX':
                 return CupertinoPageRoute(
                   builder: (_) => ChatWidgetX(),
@@ -141,6 +148,10 @@ class MyApp extends StatelessWidget {
               case '/chatBackup':
                 return CupertinoPageRoute(
                   builder: (_) => ChatBackup(),
+                );
+              case '/chats':
+                return CupertinoPageRoute(
+                  builder: (_) => Chats(),
                 );
               default:
                 return CupertinoPageRoute(
@@ -240,6 +251,10 @@ class MyApp extends StatelessWidget {
                   builder: (_) => ChangeNumber(),
                   settings: settings,
                 );
+              case '/deleteMyAccount':
+                return MaterialPageRoute(
+                  builder: (_) => DeleteMyAccount(),
+                );
               case '/addNewNumber':
                 return MaterialPageRoute(
                   builder: (_) => AddNewNumber(),
@@ -251,6 +266,10 @@ class MyApp extends StatelessWidget {
               case '/chatBackup':
                 return MaterialPageRoute(
                   builder: (_) => ChatBackup(),
+                );
+              case '/chats':
+                return MaterialPageRoute(
+                  builder: (_) => Chats(),
                 );
               default:
                 return MaterialPageRoute(

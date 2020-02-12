@@ -65,7 +65,7 @@ class Account extends StatelessWidget {
               Icons.keyboard_arrow_right,
               color: AppColors.kGrey,
             ),
-            onTap: () => Navigator.pushNamed(context, '/deletemyaccount'),
+            onTap: () => Navigator.pushNamed(context, '/deleteMyAccount'),
           )
         ],
       ),
