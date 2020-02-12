@@ -83,6 +83,7 @@ class Welcome extends StatelessWidget {
           ],
         ),
         floatingActionButton: Button(
+          "Agree & Continue",
           onPressed: () => onPress(context),
         ),
         floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,

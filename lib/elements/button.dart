@@ -2,10 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:kayvo_flutter/utilities/styles.dart';
 
 class Button extends StatelessWidget {
-  const Button({Key key, this.onPressed, this.title = "Agree and Continue"})
-      : super(key: key);
+  const Button(this.text, {Key key, this.onPressed}) : super(key: key);
   final void Function() onPressed;
-  final String title;
+  final String text;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -22,7 +21,7 @@ class Button extends StatelessWidget {
               width: deviceWidth(context) * 0.08,
             ),
             Text(
-              title,
+              text,
               style: Theme.of(context)
                   .textTheme
                   .subtitle

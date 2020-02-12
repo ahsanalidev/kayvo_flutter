@@ -2,8 +2,10 @@ import 'dart:io';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:kayvo_flutter/screens/addNewNumber.dart';
 import 'package:kayvo_flutter/screens/addNumber.dart';
 import 'package:kayvo_flutter/screens/archieve_chat.dart';
+import 'package:kayvo_flutter/screens/changeNumber.dart';
 import 'package:kayvo_flutter/screens/chat.dart';
 import 'package:kayvo_flutter/screens/contactInfo.dart';
 import 'package:kayvo_flutter/screens/deletemyaccount.dart';
@@ -121,11 +123,14 @@ class MyApp extends StatelessWidget {
                   builder: (_) => Privacy(),
                   settings: settings,
                 );
-
-              case '/deletemyaccount':
+              case '/changeNumber':
                 return CupertinoPageRoute(
-                  builder: (_) => DeleteMyAccount(),
+                  builder: (_) => ChangeNumber(),
                   settings: settings,
+                );
+              case '/addNewNumber':
+                return CupertinoPageRoute(
+                  builder: (_) => AddNewNumber(),
                 );
               default:
                 return CupertinoPageRoute(
@@ -220,10 +225,14 @@ class MyApp extends StatelessWidget {
                   builder: (_) => Privacy(),
                   settings: settings,
                 );
-              case '/deletemyaccount':
+              case '/changeNumber':
                 return MaterialPageRoute(
-                  builder: (_) => DeleteMyAccount(),
+                  builder: (_) => ChangeNumber(),
                   settings: settings,
+                );
+              case '/addNewNumber':
+                return MaterialPageRoute(
+                  builder: (_) => AddNewNumber(),
                 );
               default:
                 return MaterialPageRoute(
