@@ -7,6 +7,7 @@ import 'package:kayvo_flutter/screens/addNumber.dart';
 import 'package:kayvo_flutter/screens/archieve_chat.dart';
 import 'package:kayvo_flutter/screens/changeNumber.dart';
 import 'package:kayvo_flutter/screens/chat.dart';
+import 'package:kayvo_flutter/screens/chatBackup.dart';
 import 'package:kayvo_flutter/screens/contactInfo.dart';
 import 'package:kayvo_flutter/screens/editProfile.dart';
 import 'package:kayvo_flutter/screens/kayvo_contacts.dart';
@@ -19,6 +20,7 @@ import 'package:kayvo_flutter/screens/welcome.dart';
 import 'package:kayvo_flutter/screens/newChat.dart';
 import 'package:kayvo_flutter/screens/account.dart';
 import 'package:kayvo_flutter/screens/blocked_contacts.dart';
+import 'package:kayvo_flutter/screens/xchat.dart';
 
 import 'elements/navbar.dart';
 import 'utilities/styles.dart';
@@ -131,6 +133,14 @@ class MyApp extends StatelessWidget {
                 return CupertinoPageRoute(
                   builder: (_) => AddNewNumber(),
                 );
+              case '/chatWidgetX':
+                return CupertinoPageRoute(
+                  builder: (_) => ChatWidgetX(),
+                );
+              case '/chatBackup':
+                return CupertinoPageRoute(
+                  builder: (_) => ChatBackup(),
+                );
               default:
                 return CupertinoPageRoute(
                   builder: (_) => Welcome(),
@@ -232,6 +242,14 @@ class MyApp extends StatelessWidget {
               case '/addNewNumber':
                 return MaterialPageRoute(
                   builder: (_) => AddNewNumber(),
+                );
+              case '/chatWidgetX':
+                return MaterialPageRoute(
+                  builder: (_) => ChatWidgetX(),
+                );
+              case '/chatBackup':
+                return MaterialPageRoute(
+                  builder: (_) => ChatBackup(),
                 );
               default:
                 return MaterialPageRoute(
