@@ -87,9 +87,7 @@ class Settings extends StatelessWidget {
                   height: deviceHeight(context) * 0.05,
                 ),
                 ListTile(
-                  onTap: () {
-                    Navigator.pushNamed(context, '/account');
-                  },
+                  onTap: () => Navigator.pushNamed(context, '/account'),
                   leading: SvgPicture.asset(
                     "assets/user-circle.svg",
                     width: 24,
@@ -100,7 +98,9 @@ class Settings extends StatelessWidget {
                   trailing: Icon(Icons.keyboard_arrow_right),
                 ),
                 ListTile(
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.pushNamed(context, '/chats');
+                  },
                   leading: SvgPicture.asset(
                     "assets/comment-dots.svg",
                     width: 24,

@@ -223,13 +223,13 @@ class _MessageListViewState extends State<MessageListView> {
                                         ),
                                 ),
                                 GestureDetector(
-                                  key: btnKey,
+                                  //key: btnKey,
                                   onLongPress: () {
                                     // if (widget.onLongPressMessage != null) {
                                     //   widget.onLongPressMessage(
                                     //       widget.messages[i]);
                                     // } else {
-                                    onShow();
+                                    //onShow();
                                     // Flushbar(
                                     //   isDismissible: true,
                                     //   messageText: Row(
@@ -257,47 +257,6 @@ class _MessageListViewState extends State<MessageListView> {
                                     //   flushbarPosition:
                                     //       FlushbarPosition.BOTTOM,
                                     // )..show(context);
-
-                                    // showBottomSheet(
-                                    //     context: context,
-                                    //     builder: (context) => Container(
-                                    //           child: Row(
-                                    //             mainAxisSize:
-                                    //                 MainAxisSize.min,
-                                    //             children: <Widget>[
-                                    //               IconButton(
-                                    //                 icon: Icon(
-                                    //                     Icons.star_border),
-                                    //               ),
-                                    //               IconButton(
-                                    //                 icon: Icon(Icons.forward),
-                                    //               ),
-                                    //               IconButton(
-                                    //                 icon: Icon(
-                                    //                     Icons.arrow_back),
-                                    //               ),
-                                    //               IconButton(
-                                    //                 icon: Icon(Icons.delete),
-                                    //               ),
-                                    // ListTile(
-                                    //   leading: Icon(
-                                    //       Icons.content_copy),
-                                    //   title: Text(
-                                    //       "Copy to clipboard"),
-                                    //   onTap: () {
-                                    //     Clipboard.setData(
-                                    //         ClipboardData(
-                                    //             text: widget
-                                    //                 .messages[i]
-                                    //                 .text));
-                                    //     Navigator.pop(context);
-                                    //   },
-                                    // )
-                                    //     ],
-                                    //   ),
-                                    // )
-                                    // );
-                                    //   }
                                   },
                                   child: widget.messageBuilder != null
                                       ? widget

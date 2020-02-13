@@ -111,7 +111,7 @@ class DeleteMyAccount extends StatelessWidget {
       ),
       floatingActionButton: Button(
         "Delete My Account",
-        onPressed: () => {print(MediaQuery.of(context).size.height)},
+        onPressed: () => {},
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
     );

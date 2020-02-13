@@ -115,6 +115,7 @@ class _New_ChatState extends State<New_Chat> {
               ),
               title: Text(user.name),
               subtitle: Text("+1 240 397 0570"),
+              onTap: () => Navigator.pushNamed(context, '/chatWidgetX'),
             ),
           ),
         );
