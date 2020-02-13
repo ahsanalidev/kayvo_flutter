@@ -147,9 +147,7 @@ class AddNewNumber extends StatelessWidget {
               padding: const EdgeInsets.only(bottom: 36.0),
               child: Button(
                 "Next",
-                onPressed: () {
-                  Navigator.pushNamed(context, "/navBar");
-                },
+                onPressed: () {},
               ),
             ),
           ],

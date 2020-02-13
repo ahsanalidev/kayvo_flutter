@@ -26,12 +26,16 @@ class ChatBackup extends StatelessWidget {
           SliverFillRemaining(
             hasScrollBody: false,
             child: Column(children: [
-              Text("Back up your chat history and media to Google Drive \n" +
-                  "so if you were to lose your phone or switch to a new \n" +
-                  "one, your chat history is secured. You can restore \n" +
-                  "your chat history whenever you einstall Kayvo \n" +
-                  "Media and messages you backed up are not \n" +
-                  "protected by Kayvo end-to-end encryption"),
+              Image.asset('assets/backup_chat.png'),
+              Text(
+                "Back up your chat history and media to Google Drive \n" +
+                    "so if you were to lose your phone or switch to a new \n" +
+                    "one, your chat history is secured. You can restore \n" +
+                    "your chat history whenever you einstall Kayvo \n" +
+                    "Media and messages you backed up are not \n" +
+                    "protected by Kayvo end-to-end encryption",
+                textAlign: TextAlign.center,
+              ),
               Row(
                 children: <Widget>[
                   Text("Auto Backup"),

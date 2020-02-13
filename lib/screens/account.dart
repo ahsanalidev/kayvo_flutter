@@ -49,6 +49,7 @@ class Account extends StatelessWidget {
               Icons.keyboard_arrow_right,
               color: AppColors.kGrey,
             ),
+            onTap: () => Navigator.pushNamed(context, '/changeNumber'),
           ),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 16),

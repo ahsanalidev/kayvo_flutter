@@ -36,7 +36,7 @@ class _NewContactState extends State<NewContact> {
         floatingActionButton: FloatingActionButton(
           child: Icon(Icons.check),
           onPressed: () {
-            Navigator.pushNamed(context, '/changeNumber');
+            Navigator.pushNamed(context, "/navBar");
           },
         ),
         body: ListView(
