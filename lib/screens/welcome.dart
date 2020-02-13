@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:kayvo_flutter/elements/actionbutton.dart';
 import 'package:kayvo_flutter/elements/button.dart';
 import 'package:kayvo_flutter/utilities/styles.dart';
 
@@ -12,9 +13,9 @@ class Welcome extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        body: ListView(
+    return Scaffold(
+      body: SafeArea(
+        child: ListView(
           children: <Widget>[
             Column(
               children: <Widget>[
@@ -82,12 +83,12 @@ class Welcome extends StatelessWidget {
             ),
           ],
         ),
-        floatingActionButton: Button(
-          "Agree & Continue",
-          onPressed: () => onPress(context),
-        ),
-        floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       ),
+      floatingActionButton: Box(
+        text: "Agree & Continue",
+        onPressed: () => onPress(context),
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
     );
   }
 }

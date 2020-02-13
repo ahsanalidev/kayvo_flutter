@@ -5,15 +5,19 @@ import 'package:flutter/material.dart';
 import 'package:kayvo_flutter/screens/addNewNumber.dart';
 import 'package:kayvo_flutter/screens/addNumber.dart';
 import 'package:kayvo_flutter/screens/archieve_chat.dart';
+import 'package:kayvo_flutter/screens/backupData.dart';
 import 'package:kayvo_flutter/screens/changeNumber.dart';
 import 'package:kayvo_flutter/screens/chat.dart';
 import 'package:kayvo_flutter/screens/chatBackup.dart';
 import 'package:kayvo_flutter/screens/chats.dart';
 import 'package:kayvo_flutter/screens/contactInfo.dart';
+import 'package:kayvo_flutter/screens/dataAndStorage.dart';
 import 'package:kayvo_flutter/screens/deletemyaccount.dart';
 import 'package:kayvo_flutter/screens/editProfile.dart';
+import 'package:kayvo_flutter/screens/help.dart';
 import 'package:kayvo_flutter/screens/kayvo_contacts.dart';
 import 'package:kayvo_flutter/screens/newContact.dart';
+import 'package:kayvo_flutter/screens/notifications.dart';
 import 'package:kayvo_flutter/screens/pick_lang.dart';
 import 'package:kayvo_flutter/screens/privacy.dart';
 import 'package:kayvo_flutter/screens/profile.dart';
@@ -30,7 +34,6 @@ import 'utilities/styles.dart';
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -42,6 +45,7 @@ class MyApp extends StatelessWidget {
             switch (settings.name) {
               case '/':
                 return CupertinoPageRoute(
+                  fullscreenDialog: true,
                   builder: (_) => Welcome(),
                   settings: settings,
                 );
@@ -153,8 +157,25 @@ class MyApp extends StatelessWidget {
                 return CupertinoPageRoute(
                   builder: (_) => Chats(),
                 );
+              case '/notifications':
+                return CupertinoPageRoute(
+                  builder: (_) => Notifications(),
+                );
+              case '/dataAndStorage':
+                return CupertinoPageRoute(
+                  builder: (_) => DataAndStorage(),
+                );
+              case '/help':
+                return CupertinoPageRoute(
+                  builder: (_) => Help(),
+                );
+              case '/backupData':
+                return CupertinoPageRoute(
+                  builder: (_) => BackupData(),
+                );
               default:
                 return CupertinoPageRoute(
+                  fullscreenDialog: true,
                   builder: (_) => Welcome(),
                   settings: settings,
                 );
@@ -162,7 +183,8 @@ class MyApp extends StatelessWidget {
           } else {
             switch (settings.name) {
               case '/':
-                return MaterialPageRoute(
+                return CupertinoPageRoute(
+                  fullscreenDialog: true,
                   builder: (_) => Welcome(),
                   settings: settings,
                 );
@@ -271,8 +293,25 @@ class MyApp extends StatelessWidget {
                 return MaterialPageRoute(
                   builder: (_) => Chats(),
                 );
-              default:
+              case '/notifications':
                 return MaterialPageRoute(
+                  builder: (_) => Notifications(),
+                );
+              case '/dataAndStorage':
+                return MaterialPageRoute(
+                  builder: (_) => DataAndStorage(),
+                );
+              case '/help':
+                return MaterialPageRoute(
+                  builder: (_) => Help(),
+                );
+              case '/backupData':
+                return MaterialPageRoute(
+                  builder: (_) => BackupData(),
+                );
+              default:
+                return CupertinoPageRoute(
+                  fullscreenDialog: true,
                   builder: (_) => Welcome(),
                   settings: settings,
                 );

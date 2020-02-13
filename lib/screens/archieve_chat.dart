@@ -23,33 +23,35 @@ class ArchieveChat extends StatelessWidget {
           style: Theme.of(context).textTheme.title,
         ),
       ),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        children: <Widget>[
-          Padding(
-            padding: const EdgeInsets.all(16.0),
-            child: Theme(
-              data: ThemeData(
-                  primaryColor: AppColors.kGrey,
-                  accentColor: AppColors.kLightGrey),
-              child: Container(
-                height: MediaQuery.of(context).size.height * 0.08,
-                child: TextField(
-                  decoration: InputDecoration(
-                    border: new OutlineInputBorder(
-                        borderSide: new BorderSide(color: Colors.red)),
-                    hintText: 'Search',
-                    suffixIcon: Icon(
-                      Icons.search,
-                      color: Colors.black,
+      body: SafeArea(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: <Widget>[
+            Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: Theme(
+                data: ThemeData(
+                    primaryColor: AppColors.kGrey,
+                    accentColor: AppColors.kLightGrey),
+                child: Container(
+                  height: MediaQuery.of(context).size.height * 0.08,
+                  child: TextField(
+                    decoration: InputDecoration(
+                      border: new OutlineInputBorder(
+                          borderSide: new BorderSide(color: Colors.red)),
+                      hintText: 'Search',
+                      suffixIcon: Icon(
+                        Icons.search,
+                        color: Colors.black,
+                      ),
                     ),
                   ),
                 ),
               ),
             ),
-          ),
-          SlideableListTile()
-        ],
+            SlideableListTile()
+          ],
+        ),
       ),
     );
   }
