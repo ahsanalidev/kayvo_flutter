@@ -148,7 +148,7 @@ class _Kayvo_ContactsState extends State<Kayvo_Contacts> {
         elevation: 0,
         leading: IconButton(
           icon: Icon(
-            Icons.keyboard_arrow_left,
+            Icons.arrow_back_ios,
             color: AppColors.kBlack,
           ),
           onPressed: () => Navigator.pop(context),
