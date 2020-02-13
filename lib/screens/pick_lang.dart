@@ -99,8 +99,9 @@ class _LanguageListState extends State<LanguageList> {
 }
 
 class ListTileLang extends StatefulWidget {
-  ListTileLang({Key key, this.name}) : super(key: key);
+  ListTileLang({Key key, this.name, this.text}) : super(key: key);
   String name;
+  Widget text;
   @override
   _ListTileLangState createState() => _ListTileLangState();
 }
@@ -135,7 +136,7 @@ class _ListTileLangState extends State<ListTileLang> {
         //     ]
 
         ListTile(
-            title: Text(widget.name),
+            title: widget.name != null ? Text(widget.name) : widget.text,
             trailing: setTick
                 ? Icon(Icons.check, color: AppColors.kRed)
                 : SizedBox(

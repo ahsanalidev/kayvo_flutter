@@ -8,25 +8,24 @@ class ConactInfo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        appBar: AppBar(
-          elevation: 5,
-          leading: IconButton(
-            icon: Icon(Icons.arrow_back_ios),
-            color: AppColors.kBlack,
-            iconSize: 24,
-            onPressed: () {
-              Navigator.pop(context);
-            },
-          ),
-          title: Padding(
-            padding: const EdgeInsets.only(top: 4.0),
-            child:
-                Text("Contact Info", style: Theme.of(context).textTheme.title),
-          ),
+    return Scaffold(
+      appBar: AppBar(
+        elevation: 5,
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back_ios),
+          color: AppColors.kBlack,
+          iconSize: 24,
+          onPressed: () {
+            Navigator.pop(context);
+          },
         ),
-        body: ListView(
+        title: Padding(
+          padding: const EdgeInsets.only(top: 4.0),
+          child: Text("Contact Info", style: Theme.of(context).textTheme.title),
+        ),
+      ),
+      body: SafeArea(
+        child: ListView(
           children: <Widget>[
             Stack(
               alignment: Alignment.center,
@@ -76,10 +75,58 @@ class ConactInfo extends StatelessWidget {
                   ),
                   onPressed: () {},
                 ),
-                IconButton(
-                  icon: Icon(Icons.more_vert),
-                  onPressed: () {},
-                ),
+                PopupMenuButton<String>(
+                  onSelected: choiceAction,
+                  itemBuilder: (BuildContext context) {
+                    return Constants.choices.map((String choice) {
+                      return PopupMenuItem<String>(
+                          value: choice,
+                          child: choice == 'Share'
+                              ? Row(
+                                  children: <Widget>[
+                                    Padding(
+                                      padding:
+                                          const EdgeInsets.only(right: 4.0),
+                                      child: Icon(
+                                        Icons.share,
+                                        color: Colors.black,
+                                      ),
+                                    ),
+                                    Text(choice),
+                                  ],
+                                )
+                              : choice == 'Delete'
+                                  ? Row(
+                                      children: <Widget>[
+                                        Padding(
+                                          padding:
+                                              const EdgeInsets.only(right: 4.0),
+                                          child: Icon(
+                                            Icons.delete,
+                                            color: Colors.black,
+                                          ),
+                                        ),
+                                        Text('Delete'),
+                                      ],
+                                    )
+                                  : choice == 'Report'
+                                      ? Row(
+                                          children: <Widget>[
+                                            Padding(
+                                              padding: const EdgeInsets.only(
+                                                  right: 4.0),
+                                              child: Icon(
+                                                Icons.report,
+                                                color: Colors.black,
+                                              ),
+                                            ),
+                                            Text('Report')
+                                          ],
+                                        )
+                                      : SizedBox());
+                    }).toList();
+                  },
+                )
               ]),
             ),
             Padding(
@@ -221,4 +268,22 @@ class ConactInfo extends StatelessWidget {
       ),
     );
   }
+
+  void choiceAction(String choice) {
+    if (choice == Constants.Share) {
+      print('Share');
+    } else if (choice == Constants.Delete) {
+      print('Delete');
+    } else if (choice == Constants.Report) {
+      print('Report');
+    }
+  }
+}
+
+class Constants {
+  static const String Share = 'Share';
+  static const String Delete = 'Delete';
+  static const String Report = 'Report';
+
+  static const List<String> choices = <String>[Share, Delete, Report];
 }

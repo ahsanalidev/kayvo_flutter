@@ -16,9 +16,6 @@ class ChatBackup extends StatelessWidget {
             Icons.keyboard_arrow_left,
             color: AppColors.kBlack,
           ),
-          onPressed: () {
-            Navigator.pop(context);
-          },
         ),
         title: Text(
           "Chat Backup",
@@ -37,7 +34,7 @@ class ChatBackup extends StatelessWidget {
                   width: MediaQuery.of(context).size.width * 0.4,
                 ),
                 Text(
-                  "Back up your chat history and media to Google Drive \n" +
+                  "Back up your chat history and media to iCloud \n" +
                       "so if you were to lose your phone or switch to a new \n" +
                       "one, your chat history is secured. You can restore \n" +
                       "your chat history whenever you einstall Kayvo \n" +
@@ -46,46 +43,31 @@ class ChatBackup extends StatelessWidget {
                   textAlign: TextAlign.center,
                 ),
                 Padding(
-                  padding: EdgeInsets.only(top: 24, bottom: 24, left: 8),
+                  padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 24),
                   child: Column(
                     children: <Widget>[
-                      FlatButton(
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: <Widget>[
-                            Text("Auto Backup",
-                                style: Theme.of(context)
-                                    .textTheme
-                                    .subhead
-                                    .copyWith(fontWeight: FontWeight.w200)),
-                            Row(
-                                mainAxisSize: MainAxisSize.min,
-                                children: <Widget>[
-                                  Text("Weekly",
-                                      style: Theme.of(context)
-                                          .textTheme
-                                          .body1
-                                          .copyWith(
-                                              fontWeight: FontWeight.w200)),
-                                  Icon(
-                                    Icons.keyboard_arrow_right,
-                                    color: AppColors.kGrey,
-                                  ),
-                                ]),
-                          ],
-                        ),
-                        onPressed: () =>
-                            Navigator.pushNamed(context, '/backupData'),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: <Widget>[
+                          Text("Auto Backup"),
+                          Row(children: <Widget>[
+                            Text("Weekly"),
+                            IconButton(
+                              icon: Icon(Icons.keyboard_arrow_right),
+                              onPressed: () {},
+                            )
+                          ]),
+                        ],
                       ),
                       Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                        padding: const EdgeInsets.symmetric(horizontal: 16.0),
                         child: Divider(),
                       ),
                     ],
                   ),
                 ),
                 SizedBox(
-                  height: MediaQuery.of(context).size.height * 0.02,
+                  height: MediaQuery.of(context).size.height * 0.03,
                 ),
                 ListTile(
                   title: Text(

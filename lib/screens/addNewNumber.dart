@@ -8,25 +8,25 @@ class AddNewNumber extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        appBar: AppBar(
-          title: Padding(
-            padding: const EdgeInsets.only(top: 4.0),
-            child:
-                Text('Change Number', style: Theme.of(context).textTheme.title),
-          ),
-          elevation: 0,
-          leading: IconButton(
-            icon: Icon(Icons.arrow_back_ios),
-            color: AppColors.kBlack,
-            iconSize: 24,
-            onPressed: () {
-              Navigator.pop(context);
-            },
-          ),
+    return Scaffold(
+      appBar: AppBar(
+        title: Padding(
+          padding: const EdgeInsets.only(top: 4.0),
+          child:
+              Text('Change Number', style: Theme.of(context).textTheme.title),
         ),
-        body: Column(
+        elevation: 0,
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back_ios),
+          color: AppColors.kBlack,
+          iconSize: 24,
+          onPressed: () {
+            Navigator.pop(context);
+          },
+        ),
+      ),
+      body: SafeArea(
+        child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisSize: MainAxisSize.max,
           mainAxisAlignment: MainAxisAlignment.spaceBetween,

@@ -8,14 +8,14 @@ class Settings extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        appBar: AppBar(
-          title: Text('Settings', style: Theme.of(context).textTheme.title),
-          elevation: 0,
-          automaticallyImplyLeading: false,
-        ),
-        body: ListView(
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Settings', style: Theme.of(context).textTheme.title),
+        elevation: 0,
+        automaticallyImplyLeading: false,
+      ),
+      body: SafeArea(
+        child: ListView(
           children: <Widget>[
             Column(
               children: [
@@ -111,7 +111,9 @@ class Settings extends StatelessWidget {
                   trailing: Icon(Icons.keyboard_arrow_right),
                 ),
                 ListTile(
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.pushNamed(context, '/dataAndStorage');
+                  },
                   leading: SvgPicture.asset(
                     "assets/globe-asia.svg",
                     width: 24,
@@ -122,7 +124,9 @@ class Settings extends StatelessWidget {
                   trailing: Icon(Icons.keyboard_arrow_right),
                 ),
                 ListTile(
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.pushNamed(context, '/notifications');
+                  },
                   leading: SvgPicture.asset(
                     "assets/bell.svg",
                     width: 24,
@@ -144,7 +148,9 @@ class Settings extends StatelessWidget {
                   trailing: Icon(Icons.keyboard_arrow_right),
                 ),
                 ListTile(
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.pushNamed(context, '/help');
+                  },
                   leading: SvgPicture.asset(
                     "assets/question-circle.svg",
                     width: 24,

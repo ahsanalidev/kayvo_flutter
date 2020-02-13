@@ -78,28 +78,30 @@ class _ChatWidgetXState extends State<ChatWidgetX> {
         appBar: ChatAppbar(
           height: 228,
         ),
-        body: Stack(children: <Widget>[
-          CustomScrollView(slivers: <Widget>[
-            SliverFillRemaining(
-                hasScrollBody: false,
-                child: Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: <Widget>[
-                      Stack(
-                        children: <Widget>[
-                          Stack(
-                            children: <Widget>[
-                              ChattingWidget(
-                                onChanged: _handleTapboxChanged,
-                              ),
-                            ],
-                          ),
-                          _active ? SizedBox(height: 0) : security(),
-                        ],
-                      ),
-                    ])),
-          ])
-        ]));
+        body: SafeArea(
+          child: Stack(children: <Widget>[
+            CustomScrollView(slivers: <Widget>[
+              SliverFillRemaining(
+                  hasScrollBody: false,
+                  child: Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: <Widget>[
+                        Stack(
+                          children: <Widget>[
+                            Stack(
+                              children: <Widget>[
+                                ChattingWidget(
+                                  onChanged: _handleTapboxChanged,
+                                ),
+                              ],
+                            ),
+                            _active ? SizedBox(height: 0) : security(),
+                          ],
+                        ),
+                      ])),
+            ])
+          ]),
+        ));
   }
 
   // void setStatecall() {

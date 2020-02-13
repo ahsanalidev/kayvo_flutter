@@ -21,49 +21,51 @@ class BlockedContacts extends StatelessWidget {
           style: Theme.of(context).textTheme.title,
         ),
       ),
-      body: ListView(
-        children: <Widget>[
-          ListTile(
-            leading: CircleAvatar(
-              child: Image.asset('assets/default_image.png'),
-              foregroundColor: Colors.white,
+      body: SafeArea(
+        child: ListView(
+          children: <Widget>[
+            ListTile(
+              leading: CircleAvatar(
+                child: Image.asset('assets/default_image.png'),
+                foregroundColor: Colors.white,
+              ),
+              title: Text(
+                'Ayodejy Abraham',
+                style: Theme.of(context).textTheme.subtitle,
+              ),
+              subtitle: Text(
+                '+1 240 397 0570',
+                style: Theme.of(context).textTheme.subtitle,
+              ),
+              trailing: SvgPicture.asset(
+                'assets/minus-circle.svg',
+                height: 25,
+                width: 25,
+                color: AppColors.kRed,
+              ),
             ),
-            title: Text(
-              'Ayodejy Abraham',
-              style: Theme.of(context).textTheme.subtitle,
+            ListTile(
+              leading: CircleAvatar(
+                child: Image.asset('assets/default_image.png'),
+                foregroundColor: Colors.white,
+              ),
+              title: Text(
+                'Charles Lucas',
+                style: Theme.of(context).textTheme.subtitle,
+              ),
+              subtitle: Text(
+                '+1 240 397 0570',
+                style: Theme.of(context).textTheme.subtitle,
+              ),
+              trailing: SvgPicture.asset(
+                'assets/minus-circle.svg',
+                height: 25,
+                width: 25,
+                color: AppColors.kRed,
+              ),
             ),
-            subtitle: Text(
-              '+1 240 397 0570',
-              style: Theme.of(context).textTheme.subtitle,
-            ),
-            trailing: SvgPicture.asset(
-              'assets/minus-circle.svg',
-              height: 25,
-              width: 25,
-              color: AppColors.kRed,
-            ),
-          ),
-          ListTile(
-            leading: CircleAvatar(
-              child: Image.asset('assets/default_image.png'),
-              foregroundColor: Colors.white,
-            ),
-            title: Text(
-              'Charles Lucas',
-              style: Theme.of(context).textTheme.subtitle,
-            ),
-            subtitle: Text(
-              '+1 240 397 0570',
-              style: Theme.of(context).textTheme.subtitle,
-            ),
-            trailing: SvgPicture.asset(
-              'assets/minus-circle.svg',
-              height: 25,
-              width: 25,
-              color: AppColors.kRed,
-            ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

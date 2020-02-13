@@ -154,110 +154,112 @@ class _New_ChatState extends State<New_Chat> {
           style: Theme.of(context).textTheme.title,
         ),
       ),
-      body: AlphabetListScrollView(
-        strList: strList,
-        highlightTextStyle: TextStyle(
-          color: AppColors.kLightRed,
-        ),
-        normalTextStyle: Theme.of(context)
-            .textTheme
-            .subtitle
-            .copyWith(color: AppColors.kGrey),
-        showPreview: false,
-        itemBuilder: (context, index) {
-          return normalList[index];
-        },
-        indexedHeight: (i) {
-          return 80;
-        },
-        keyboardUsage: true,
-        headerWidgetList: <AlphabetScrollListHeader>[
-          AlphabetScrollListHeader(widgetList: [
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 26),
-              child: Theme(
-                data: ThemeData(
-                    primaryColor: AppColors.kGrey,
-                    accentColor: AppColors.kLightGrey),
-                child: TextField(
-                  controller: searchController,
-                  decoration: InputDecoration(
-                    border: OutlineInputBorder(
-                        borderSide: new BorderSide(color: Colors.red)),
-                    contentPadding: EdgeInsets.symmetric(horizontal: 10),
-                    hintText: 'Search',
-                    suffixIcon: Icon(
-                      Icons.search,
-                      color: Colors.black,
+      body: SafeArea(
+        child: AlphabetListScrollView(
+          strList: strList,
+          highlightTextStyle: TextStyle(
+            color: AppColors.kLightRed,
+          ),
+          normalTextStyle: Theme.of(context)
+              .textTheme
+              .subtitle
+              .copyWith(color: AppColors.kGrey),
+          showPreview: false,
+          itemBuilder: (context, index) {
+            return normalList[index];
+          },
+          indexedHeight: (i) {
+            return 80;
+          },
+          keyboardUsage: true,
+          headerWidgetList: <AlphabetScrollListHeader>[
+            AlphabetScrollListHeader(widgetList: [
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 26),
+                child: Theme(
+                  data: ThemeData(
+                      primaryColor: AppColors.kGrey,
+                      accentColor: AppColors.kLightGrey),
+                  child: TextField(
+                    controller: searchController,
+                    decoration: InputDecoration(
+                      border: OutlineInputBorder(
+                          borderSide: new BorderSide(color: Colors.red)),
+                      contentPadding: EdgeInsets.symmetric(horizontal: 10),
+                      hintText: 'Search',
+                      suffixIcon: Icon(
+                        Icons.search,
+                        color: Colors.black,
+                      ),
                     ),
                   ),
                 ),
               ),
-            ),
-            Row(
-              children: <Widget>[
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                  child: Column(
-                    children: <Widget>[
-                      IconButton(
-                        iconSize: 40,
-                        icon: CircleAvatar(
-                          radius: 24,
-                          child: Padding(
-                            padding: const EdgeInsets.all(10.0),
-                            child: SvgPicture.asset(
-                              'assets/user-plus.svg',
+              Row(
+                children: <Widget>[
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                    child: Column(
+                      children: <Widget>[
+                        IconButton(
+                          iconSize: 40,
+                          icon: CircleAvatar(
+                            radius: 24,
+                            child: Padding(
+                              padding: const EdgeInsets.all(10.0),
+                              child: SvgPicture.asset(
+                                'assets/user-plus.svg',
+                              ),
                             ),
+                            backgroundColor: AppColors.kLightGrey,
                           ),
-                          backgroundColor: AppColors.kLightGrey,
+                          onPressed: () {},
                         ),
-                        onPressed: () {},
-                      ),
-                      Text(
-                        "New Contact",
-                        style: Theme.of(context).textTheme.body1,
-                      )
-                    ],
+                        Text(
+                          "New Contact",
+                          style: Theme.of(context).textTheme.body1,
+                        )
+                      ],
+                    ),
                   ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 24.0),
-                  child: VerticalDivider(
-                    color: AppColors.kGrey,
+                  Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 24.0),
+                    child: VerticalDivider(
+                      color: AppColors.kGrey,
+                    ),
                   ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                  child: Column(
-                    children: <Widget>[
-                      IconButton(
-                        iconSize: 40,
-                        icon: CircleAvatar(
-                          radius: 24,
-                          child: Icon(FontAwesomeIcons.user,
-                              color: AppColors.kBlack, size: 18),
-                          backgroundColor: AppColors.kLightGrey,
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                    child: Column(
+                      children: <Widget>[
+                        IconButton(
+                          iconSize: 40,
+                          icon: CircleAvatar(
+                            radius: 24,
+                            child: Icon(FontAwesomeIcons.user,
+                                color: AppColors.kBlack, size: 18),
+                            backgroundColor: AppColors.kLightGrey,
+                          ),
+                          onPressed: () {},
                         ),
-                        onPressed: () {},
-                      ),
-                      Text(
-                        'Invite',
-                        style: Theme.of(context).textTheme.body1,
-                      )
-                    ],
+                        Text(
+                          'Invite',
+                          style: Theme.of(context).textTheme.body1,
+                        )
+                      ],
+                    ),
                   ),
-                ),
-              ],
-            ),
-            Padding(
-              padding: const EdgeInsets.all(24.0),
-              child: Divider(
-                color: AppColors.kGrey,
+                ],
               ),
-            )
-          ], icon: Icon(Icons.search), indexedHeaderHeight: (index) => 80),
-        ],
+              Padding(
+                padding: const EdgeInsets.all(24.0),
+                child: Divider(
+                  color: AppColors.kGrey,
+                ),
+              )
+            ], icon: Icon(Icons.search), indexedHeaderHeight: (index) => 80),
+          ],
+        ),
       ),
     );
   }

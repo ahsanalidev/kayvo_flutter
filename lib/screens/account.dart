@@ -20,55 +20,57 @@ class Account extends StatelessWidget {
           style: Theme.of(context).textTheme.title,
         ),
       ),
-      body: ListView(
-        children: <Widget>[
-          ListTile(
-            title: Text(
-              "Privacy",
-              style: Theme.of(context).textTheme.subhead,
+      body: SafeArea(
+        child: ListView(
+          children: <Widget>[
+            ListTile(
+              title: Text(
+                "Privacy",
+                style: Theme.of(context).textTheme.subhead,
+              ),
+              trailing: Icon(
+                Icons.keyboard_arrow_right,
+                color: AppColors.kGrey,
+              ),
+              onTap: () => Navigator.pushNamed(context, '/privacy'),
             ),
-            trailing: Icon(
-              Icons.keyboard_arrow_right,
-              color: AppColors.kGrey,
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16),
+              child: Divider(
+                color: AppColors.kBlack,
+              ),
             ),
-            onTap: () => Navigator.pushNamed(context, '/privacy'),
-          ),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16),
-            child: Divider(
-              color: AppColors.kBlack,
+            //addddddddddddddd
+            ListTile(
+              title: Text(
+                "Change Number",
+                style: Theme.of(context).textTheme.subhead,
+              ),
+              trailing: Icon(
+                Icons.keyboard_arrow_right,
+                color: AppColors.kGrey,
+              ),
+              onTap: () => Navigator.pushNamed(context, '/changeNumber'),
             ),
-          ),
-          //addddddddddddddd
-          ListTile(
-            title: Text(
-              "Change Number",
-              style: Theme.of(context).textTheme.subhead,
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16),
+              child: Divider(
+                color: AppColors.kBlack,
+              ),
             ),
-            trailing: Icon(
-              Icons.keyboard_arrow_right,
-              color: AppColors.kGrey,
-            ),
-            onTap: () => Navigator.pushNamed(context, '/changeNumber'),
-          ),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16),
-            child: Divider(
-              color: AppColors.kBlack,
-            ),
-          ),
-          ListTile(
-            title: Text(
-              "Delete My Account",
-              style: Theme.of(context).textTheme.subhead,
-            ),
-            trailing: Icon(
-              Icons.keyboard_arrow_right,
-              color: AppColors.kGrey,
-            ),
-            onTap: () => Navigator.pushNamed(context, '/deleteMyAccount'),
-          )
-        ],
+            ListTile(
+              title: Text(
+                "Delete My Account",
+                style: Theme.of(context).textTheme.subhead,
+              ),
+              trailing: Icon(
+                Icons.keyboard_arrow_right,
+                color: AppColors.kGrey,
+              ),
+              onTap: () => Navigator.pushNamed(context, '/deleteMyAccount'),
+            )
+          ],
+        ),
       ),
     );
   }

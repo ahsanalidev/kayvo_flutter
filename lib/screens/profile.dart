@@ -8,30 +8,30 @@ class Profile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        appBar: AppBar(
-          title: Padding(
-            padding: const EdgeInsets.only(top: 4.0),
-            child: Text('Profile', style: Theme.of(context).textTheme.title),
-          ),
-          elevation: 0,
-          leading: IconButton(
-            icon: Icon(Icons.arrow_back_ios),
-            color: AppColors.kBlack,
-            iconSize: 24,
-            onPressed: () {
-              Navigator.pop(context);
-            },
-          ),
+    return Scaffold(
+      appBar: AppBar(
+        title: Padding(
+          padding: const EdgeInsets.only(top: 4.0),
+          child: Text('Profile', style: Theme.of(context).textTheme.title),
         ),
-        floatingActionButton: FloatingActionButton(
-          child: Icon(Icons.check),
+        elevation: 0,
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back_ios),
+          color: AppColors.kBlack,
+          iconSize: 24,
           onPressed: () {
-            Navigator.pushNamed(context, '/newContact');
+            Navigator.pop(context);
           },
         ),
-        body: ListView(
+      ),
+      floatingActionButton: FloatingActionButton(
+        child: Icon(Icons.check),
+        onPressed: () {
+          Navigator.pushNamed(context, '/newContact');
+        },
+      ),
+      body: SafeArea(
+        child: ListView(
           children: <Widget>[
             Column(
               children: [

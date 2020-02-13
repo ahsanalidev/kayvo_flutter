@@ -7,6 +7,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:kayvo_flutter/utilities/styles.dart';
 import 'package:dash_chat/dash_chat.dart';
+import 'package:popup_menu/popup_menu.dart';
 
 class security extends StatefulWidget {
   security({
@@ -131,28 +132,30 @@ class _ChatWidgetState extends State<ChatWidget> {
             ],
           ),
         ),
-        body: Stack(children: <Widget>[
-          CustomScrollView(slivers: <Widget>[
-            SliverFillRemaining(
-                hasScrollBody: false,
-                child: Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: <Widget>[
-                      Stack(
-                        children: <Widget>[
-                          Stack(
-                            children: <Widget>[
-                              ChattingWidget(
-                                onChanged: _handleTapboxChanged,
-                              ),
-                            ],
-                          ),
-                          _active ? SizedBox(height: 0) : security(),
-                        ],
-                      ),
-                    ])),
-          ])
-        ]));
+        body: SafeArea(
+          child: Stack(children: <Widget>[
+            CustomScrollView(slivers: <Widget>[
+              SliverFillRemaining(
+                  hasScrollBody: false,
+                  child: Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: <Widget>[
+                        Stack(
+                          children: <Widget>[
+                            Stack(
+                              children: <Widget>[
+                                ChattingWidget(
+                                  onChanged: _handleTapboxChanged,
+                                ),
+                              ],
+                            ),
+                            _active ? SizedBox(height: 0) : security(),
+                          ],
+                        ),
+                      ])),
+            ])
+          ]),
+        ));
   }
 
   // void setStatecall() {
@@ -272,8 +275,11 @@ class _ChattingWidgetState extends State<ChattingWidget> {
     }
   }
 
+  final GlobalKey btnKey = GlobalKey();
+
   @override
   Widget build(BuildContext context) {
+    PopupMenu.context = context;
     return DashChat(
       key: _chatViewKey,
       inverted: false,
@@ -302,20 +308,9 @@ class _ChattingWidgetState extends State<ChattingWidget> {
       showTraillingBeforeSend: true,
       trailing: <Widget>[
         IconButton(
-          icon: SvgPicture.asset(
-            'assets/paperclip.svg',
-            height: 20,
-            width: 20,
-            color: AppColors.kGrey,
-          ),
-          onPressed: () {},
-        ),
-        IconButton(
-          icon: Icon(
-            Icons.mic,
-            color: AppColors.kGrey,
-          ),
-          onPressed: () {},
+          key: btnKey,
+          icon: Icon(Icons.add, color: AppColors.kGrey),
+          onPressed: () => onShow(),
         ),
       ],
       sendButtonBuilder: (Function click) {
@@ -350,4 +345,44 @@ class _ChattingWidgetState extends State<ChattingWidget> {
       shouldShowLoadEarlier: true,
     );
   }
+
+  void onShow() {
+    PopupMenu menu = PopupMenu(
+        backgroundColor: AppColors.kGrey,
+        lineColor: AppColors.kLightGrey,
+        items: [
+          MenuItem(
+            title: "Attach",
+            image: SvgPicture.asset(
+              'assets/paperclip.svg',
+              height: 10,
+              width: 10,
+              color: AppColors.kLightGrey,
+            ),
+          ),
+          MenuItem(
+            title: 'Voice',
+            image: Icon(
+              Icons.mic,
+              color: AppColors.kLightGrey,
+            ),
+          ),
+          MenuItem(
+            title: 'Gif',
+            image: SvgPicture.asset(
+              'assets/gif.svg',
+              height: 10,
+              width: 10,
+              color: AppColors.kLightGrey,
+            ),
+          )
+        ],
+        onClickMenu: onClickMenu,
+        onDismiss: onDismiss);
+    menu.show(widgetKey: btnKey);
+  }
+
+  void onClickMenu(MenuItemProvider item) {}
+
+  void onDismiss() {}
 }

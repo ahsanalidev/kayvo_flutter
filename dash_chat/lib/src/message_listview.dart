@@ -70,7 +70,6 @@ class MessageListView extends StatefulWidget {
 }
 
 class _MessageListViewState extends State<MessageListView> {
-  final GlobalKey btnKey = GlobalKey();
 
   double previousPixelPostion = 0.0;
 
@@ -100,7 +99,7 @@ class _MessageListViewState extends State<MessageListView> {
   @override
   Widget build(BuildContext context) {
     DateTime currentDate;
-    PopupMenu.context = context;
+  
     print(widget.dateFormat != null);
 
     return Flexible(
@@ -339,31 +338,5 @@ class _MessageListViewState extends State<MessageListView> {
     );
   }
 
-  void onShow() {
-    PopupMenu menu = PopupMenu(items: [
-      MenuItem(
-          title: 'Mail',
-          image: Icon(
-            Icons.mail,
-            color: Colors.white,
-          )),
-      MenuItem(
-          title: 'Setting',
-          image: Icon(
-            Icons.settings,
-            color: Colors.white,
-          )),
-      MenuItem(
-          title: 'PopupMenu',
-          image: Icon(
-            Icons.menu,
-            color: Colors.white,
-          ))
-    ], onClickMenu: onClickMenu, onDismiss: onDismiss);
-    menu.show(widgetKey: btnKey);
-  }
 
-  void onClickMenu(MenuItemProvider item) {}
-
-  void onDismiss() {}
 }

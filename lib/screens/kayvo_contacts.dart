@@ -172,51 +172,53 @@ class _Kayvo_ContactsState extends State<Kayvo_Contacts> {
           )
         ],
       ),
-      body: AlphabetListScrollView(
-        strList: strList,
-        highlightTextStyle: TextStyle(
-          color: AppColors.kLightRed,
-        ),
-        normalTextStyle: Theme.of(context)
-            .textTheme
-            .subtitle
-            .copyWith(color: AppColors.kGrey),
-        showPreview: false,
-        itemBuilder: (context, index) {
-          return normalList[index];
-        },
-        indexedHeight: (i) {
-          return 80;
-        },
-        keyboardUsage: true,
-        headerWidgetList: <AlphabetScrollListHeader>[
-          AlphabetScrollListHeader(widgetList: [
-            SafeArea(
-              child: Padding(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 26, vertical: 16),
-                child: Theme(
-                  data: ThemeData(
-                      primaryColor: AppColors.kGrey,
-                      accentColor: AppColors.kLightGrey),
-                  child: TextField(
-                    controller: searchController,
-                    decoration: InputDecoration(
-                      border: OutlineInputBorder(
-                          borderSide: new BorderSide(color: Colors.red)),
-                      contentPadding: EdgeInsets.symmetric(horizontal: 10),
-                      hintText: 'Search',
-                      suffixIcon: Icon(
-                        Icons.search,
-                        color: Colors.black,
+      body: SafeArea(
+        child: AlphabetListScrollView(
+          strList: strList,
+          highlightTextStyle: TextStyle(
+            color: AppColors.kLightRed,
+          ),
+          normalTextStyle: Theme.of(context)
+              .textTheme
+              .subtitle
+              .copyWith(color: AppColors.kGrey),
+          showPreview: false,
+          itemBuilder: (context, index) {
+            return normalList[index];
+          },
+          indexedHeight: (i) {
+            return 80;
+          },
+          keyboardUsage: true,
+          headerWidgetList: <AlphabetScrollListHeader>[
+            AlphabetScrollListHeader(widgetList: [
+              SafeArea(
+                child: Padding(
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 26, vertical: 16),
+                  child: Theme(
+                    data: ThemeData(
+                        primaryColor: AppColors.kGrey,
+                        accentColor: AppColors.kLightGrey),
+                    child: TextField(
+                      controller: searchController,
+                      decoration: InputDecoration(
+                        border: OutlineInputBorder(
+                            borderSide: new BorderSide(color: Colors.red)),
+                        contentPadding: EdgeInsets.symmetric(horizontal: 10),
+                        hintText: 'Search',
+                        suffixIcon: Icon(
+                          Icons.search,
+                          color: Colors.black,
+                        ),
                       ),
                     ),
                   ),
                 ),
-              ),
-            )
-          ], icon: Icon(Icons.search), indexedHeaderHeight: (index) => 80),
-        ],
+              )
+            ], icon: Icon(Icons.search), indexedHeaderHeight: (index) => 80),
+          ],
+        ),
       ),
     );
   }

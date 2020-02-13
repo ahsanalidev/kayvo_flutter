@@ -18,14 +18,6 @@ class MyCustomAppBar extends StatelessWidget implements PreferredSizeWidget {
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           mainAxisSize: MainAxisSize.max,
           children: [
-            // IconButton(
-            //   icon: Icon(Icons.arrow_back_ios),
-            //   color: AppColors.kBlack,
-            //   iconSize: 24,
-            //   onPressed: () {
-            //     Navigator.pop(context);
-            //   },
-            // ),
             InkWell(
               child: Padding(
                   padding:
