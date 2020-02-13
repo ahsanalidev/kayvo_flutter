@@ -58,6 +58,7 @@ class Privacy extends StatelessWidget {
                 ],
               ),
             ),
+            onTap: () => Navigator.pushNamed(context, '/profilePhoto'),
           ),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 16),

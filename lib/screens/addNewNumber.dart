@@ -143,16 +143,14 @@ class AddNewNumber extends StatelessWidget {
                 ),
               ],
             ),
-            Padding(
-              padding: const EdgeInsets.only(bottom: 36.0),
-              child: Button(
-                "Next",
-                onPressed: () {},
-              ),
-            ),
           ],
         ),
       ),
+      floatingActionButton: Button(
+        "Next",
+        onPressed: () {},
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
     );
   }
 }

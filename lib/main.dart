@@ -21,6 +21,7 @@ import 'package:kayvo_flutter/screens/notifications.dart';
 import 'package:kayvo_flutter/screens/pick_lang.dart';
 import 'package:kayvo_flutter/screens/privacy.dart';
 import 'package:kayvo_flutter/screens/profile.dart';
+import 'package:kayvo_flutter/screens/profilePhoto.dart';
 import 'package:kayvo_flutter/screens/verifyNumber.dart';
 import 'package:kayvo_flutter/screens/welcome.dart';
 import 'package:kayvo_flutter/screens/newChat.dart';
@@ -173,6 +174,10 @@ class MyApp extends StatelessWidget {
                 return CupertinoPageRoute(
                   builder: (_) => BackupData(),
                 );
+              case '/profilePhoto':
+                return CupertinoPageRoute(
+                  builder: (_) => ProfilePhoto(),
+                );
               default:
                 return CupertinoPageRoute(
                   fullscreenDialog: true,
@@ -308,6 +313,10 @@ class MyApp extends StatelessWidget {
               case '/backupData':
                 return MaterialPageRoute(
                   builder: (_) => BackupData(),
+                );
+              case '/profilePhoto':
+                return MaterialPageRoute(
+                  builder: (_) => ProfilePhoto(),
                 );
               default:
                 return CupertinoPageRoute(
