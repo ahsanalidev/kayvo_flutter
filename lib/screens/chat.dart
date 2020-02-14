@@ -5,6 +5,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:kayvo_flutter/screens/dialog.dart';
 import 'package:kayvo_flutter/utilities/styles.dart';
 import 'package:dash_chat/dash_chat.dart';
 import 'package:popup_menu/popup_menu.dart';
@@ -220,31 +221,8 @@ class _ChatWidgetState extends State<ChatWidget> {
 
   Future<void> choiceAction(String choice) async {
     if (choice == Constants.Delete) {
-      return showDialog<void>(
-        context: context,
-        barrierDismissible: false, // user must tap button!
-        builder: (BuildContext context) {
-          return AlertDialog(
-            title: Text('Delete Chat'),
-            content: SingleChildScrollView(
-                child: Text("Are you sure you want to delete this chat?")),
-            actions: <Widget>[
-              FlatButton(
-                child: Text('Cancel'),
-                onPressed: () {
-                  Navigator.of(context).pop();
-                },
-              ),
-              FlatButton(
-                child: Text('Delete'),
-                onPressed: () {
-                  Navigator.of(context).pop();
-                },
-              ),
-            ],
-          );
-        },
-      );
+      return showDialog(
+          context: context, builder: (BuildContext context) => CustomDialog());
     } else if (choice == Constants.Report) {
       print('Report');
     }
