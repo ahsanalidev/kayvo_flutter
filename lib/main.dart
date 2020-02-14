@@ -6,6 +6,7 @@ import 'package:kayvo_flutter/screens/addNewNumber.dart';
 import 'package:kayvo_flutter/screens/addNumber.dart';
 import 'package:kayvo_flutter/screens/archieve_chat.dart';
 import 'package:kayvo_flutter/screens/backupData.dart';
+import 'package:kayvo_flutter/screens/blank.dart';
 import 'package:kayvo_flutter/screens/changeNumber.dart';
 import 'package:kayvo_flutter/screens/chat.dart';
 import 'package:kayvo_flutter/screens/chatBackup.dart';
@@ -23,7 +24,6 @@ import 'package:kayvo_flutter/screens/privacy.dart';
 import 'package:kayvo_flutter/screens/profile.dart';
 import 'package:kayvo_flutter/screens/profilePhoto.dart';
 import 'package:kayvo_flutter/screens/verifyNumber.dart';
-import 'package:kayvo_flutter/screens/welcome.dart';
 import 'package:kayvo_flutter/screens/newChat.dart';
 import 'package:kayvo_flutter/screens/account.dart';
 import 'package:kayvo_flutter/screens/blocked_contacts.dart';
@@ -47,7 +47,7 @@ class MyApp extends StatelessWidget {
               case '/':
                 return CupertinoPageRoute(
                   fullscreenDialog: true,
-                  builder: (_) => Welcome(),
+                  builder: (_) => SplashScreen(),
                   settings: settings,
                 );
               case '/addNumber':
@@ -181,7 +181,7 @@ class MyApp extends StatelessWidget {
               default:
                 return CupertinoPageRoute(
                   fullscreenDialog: true,
-                  builder: (_) => Welcome(),
+                  builder: (_) => SplashScreen(),
                   settings: settings,
                 );
             }
@@ -190,7 +190,7 @@ class MyApp extends StatelessWidget {
               case '/':
                 return CupertinoPageRoute(
                   fullscreenDialog: true,
-                  builder: (_) => Welcome(),
+                  builder: (_) => SplashScreen(),
                   settings: settings,
                 );
               case '/addNumber':
@@ -321,7 +321,7 @@ class MyApp extends StatelessWidget {
               default:
                 return CupertinoPageRoute(
                   fullscreenDialog: true,
-                  builder: (_) => Welcome(),
+                  builder: (_) => SplashScreen(),
                   settings: settings,
                 );
             }
@@ -331,7 +331,7 @@ class MyApp extends StatelessWidget {
 }
 
 // routes: {
-//   '/': (context) => Welcome(),
+//   '/': (context) => SplashScreen(),
 //   '/addNumber': (context) => AddNumber(),
 //   '/navBar': (context) => NavBar(),
 //   '/verifyNumber': (context) => VerifyNumber(),

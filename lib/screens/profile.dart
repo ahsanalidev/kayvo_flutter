@@ -3,8 +3,15 @@ import 'package:flutter_svg/svg.dart';
 import 'package:kayvo_flutter/elements/kTextField.dart';
 import 'package:kayvo_flutter/utilities/styles.dart';
 
-class Profile extends StatelessWidget {
+class Profile extends StatefulWidget {
   const Profile({Key key}) : super(key: key);
+
+  @override
+  _ProfileState createState() => _ProfileState();
+}
+
+class _ProfileState extends State<Profile> {
+  bool moreFields = false;
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +34,7 @@ class Profile extends StatelessWidget {
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.check),
         onPressed: () {
-          Navigator.pushNamed(context, '/newContact');
+          Navigator.pushNamed(context, "/navBar");
         },
       ),
       body: SafeArea(
@@ -91,24 +98,46 @@ class Profile extends StatelessWidget {
                   height: deviceHeight(context) * 0.025,
                 ),
                 Padding(
-                  padding: const EdgeInsets.all(24.0),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: <Widget>[
-                      Container(
-                        height: 1,
-                        width: deviceWidth(context) * 0.275,
-                        color: AppColors.kLightGrey,
-                      ),
-                      Text("More Fields"),
-                      Icon(Icons.keyboard_arrow_down),
-                      Container(
-                        height: 1,
-                        width: deviceWidth(context) * 0.275,
-                        color: AppColors.kLightGrey,
-                      ),
-                    ],
+                  padding: const EdgeInsets.fromLTRB(24.0, 16.0, 24.0, 0.0),
+                  child: FlatButton(
+                    padding: EdgeInsets.all(4),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: <Widget>[
+                        Container(
+                          height: 1,
+                          width: deviceWidth(context) * 0.275,
+                          color: AppColors.kLightGrey,
+                        ),
+                        Text("More Fields"),
+                        Icon(moreFields
+                            ? Icons.keyboard_arrow_up
+                            : Icons.keyboard_arrow_down),
+                        Container(
+                          height: 1,
+                          width: deviceWidth(context) * 0.275,
+                          color: AppColors.kLightGrey,
+                        ),
+                      ],
+                    ),
+                    onPressed: () {
+                      setState(() {
+                        moreFields = !moreFields;
+                      });
+                    },
                   ),
+                ),
+                (moreFields)
+                    ? Column(
+                        children: <Widget>[
+                          KTextField("Company", ""),
+                          KTextField("Email", ""),
+                          KTextField("Address", ""),
+                        ],
+                      )
+                    : Container(),
+                SizedBox(
+                  height: deviceHeight(context) * 0.1,
                 ),
               ],
             ),

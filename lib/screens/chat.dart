@@ -5,6 +5,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:kayvo_flutter/screens/dialog.dart';
 import 'package:kayvo_flutter/utilities/styles.dart';
 import 'package:dash_chat/dash_chat.dart';
 import 'package:popup_menu/popup_menu.dart';
@@ -119,16 +120,62 @@ class _ChatWidgetState extends State<ChatWidget> {
             ),
             actions: <Widget>[
               Padding(
-                padding: const EdgeInsets.only(top: 20),
-                child: IconButton(
+                padding: const EdgeInsets.only(top: 20.0),
+                child: PopupMenuButton<String>(
                   icon: SvgPicture.asset(
                     "assets/ellipsis-v.svg",
                     width: 28,
                     height: 28,
                   ),
-                  onPressed: () {},
+                  onSelected: choiceAction,
+                  itemBuilder: (BuildContext context) {
+                    return Constants.choices.map((String choice) {
+                      return PopupMenuItem<String>(
+                          value: choice,
+                          child: choice == 'Delete'
+                              ? Row(
+                                  children: <Widget>[
+                                    Padding(
+                                      padding:
+                                          const EdgeInsets.only(right: 4.0),
+                                      child: Icon(
+                                        Icons.delete,
+                                        color: Colors.black,
+                                      ),
+                                    ),
+                                    Text('Delete'),
+                                  ],
+                                )
+                              : choice == 'Report'
+                                  ? Row(
+                                      children: <Widget>[
+                                        Padding(
+                                          padding:
+                                              const EdgeInsets.only(right: 4.0),
+                                          child: Icon(
+                                            Icons.report,
+                                            color: Colors.black,
+                                          ),
+                                        ),
+                                        Text('Report')
+                                      ],
+                                    )
+                                  : SizedBox());
+                    }).toList();
+                  },
                 ),
               )
+              // Padding(
+              //   padding: const EdgeInsets.only(top: 20),
+              //   child: IconButton(
+              //     icon: SvgPicture.asset(
+              //       "assets/ellipsis-v.svg",
+              //       width: 28,
+              //       height: 28,
+              //     ),
+              //     onPressed: () {},
+              //   ),
+              // )
             ],
           ),
         ),
@@ -171,6 +218,22 @@ class _ChatWidgetState extends State<ChatWidget> {
   //     }
   //   });
   // }
+
+  Future<void> choiceAction(String choice) async {
+    if (choice == Constants.Delete) {
+      return showDialog(
+          context: context, builder: (BuildContext context) => CustomDialog());
+    } else if (choice == Constants.Report) {
+      print('Report');
+    }
+  }
+}
+
+class Constants {
+  static const String Delete = 'Delete';
+  static const String Report = 'Report';
+
+  static const List<String> choices = <String>[Delete, Report];
 }
 
 class ChattingWidget extends StatefulWidget {
