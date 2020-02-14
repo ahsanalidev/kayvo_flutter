@@ -180,29 +180,6 @@ class _SliverAppBarDelegate extends SliverPersistentHeaderDelegate {
   Widget build(
       BuildContext context, double shrinkOffset, bool overlapsContent) {
     return newAppbar;
-    // return Container(
-    // child: Theme(
-    //   data: ThemeData(
-    //       primaryColor: AppColors.kGrey, accentColor: AppColors.kLightGrey),
-    //   child: TextField(
-    //     controller: searchController,
-    //     decoration: InputDecoration(
-    //       border: OutlineInputBorder(
-    //           borderSide: new BorderSide(color: Colors.red)),
-    //       contentPadding: EdgeInsets.symmetric(horizontal: 10),
-    //       hintText: 'Search',
-    //       suffixIcon: Icon(
-    //         Icons.search,
-    //         color: Colors.black,
-    //       ),
-    //     ),
-    //   ),
-    // ),
-    //   child: Text(
-    //     "HHHHHHHHHHHHHHHHH",
-    //     style: TextStyle(color: AppColors.kBlack),
-    //   ),
-    // );
   }
 
   @override
