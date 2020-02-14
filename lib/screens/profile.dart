@@ -27,7 +27,7 @@ class Profile extends StatelessWidget {
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.check),
         onPressed: () {
-          Navigator.pushNamed(context, '/newContact');
+          Navigator.pushNamed(context, "/navBar");
         },
       ),
       body: SafeArea(

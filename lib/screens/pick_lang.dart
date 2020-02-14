@@ -73,7 +73,7 @@ class _LanguageListState extends State<LanguageList> {
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.check),
         onPressed: () {
-          Navigator.pushNamed(context, '/editProfile');
+          Navigator.pushNamed(context, '/profile');
         },
       ),
       body: AlphabetListScrollView(

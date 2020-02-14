@@ -213,7 +213,9 @@ class _New_ChatState extends State<New_Chat> {
                             ),
                             backgroundColor: AppColors.kLightGrey,
                           ),
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.pushNamed(context, '/newContact');
+                          },
                         ),
                         Text(
                           "New Contact",

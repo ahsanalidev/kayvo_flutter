@@ -23,7 +23,9 @@ class ChatList extends StatelessWidget {
               height: 16,
               width: 20,
             ),
-            onPressed: () {},
+            onPressed: () {
+              Navigator.pushNamed(context, '/editProfile');
+            },
           ),
           IconButton(
             icon: Icon(
