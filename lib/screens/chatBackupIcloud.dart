@@ -5,26 +5,56 @@ import 'package:kayvo_flutter/utilities/styles.dart';
 import 'package:popup_menu/popup_menu.dart';
 
 class ChatBackup extends StatelessWidget {
-  const ChatBackup({Key key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
+  ChatBackup({Key key}) : super(key: key);
+  Widget appBar(BuildContext context) => AppBar(
+        elevation: 0,
         leading: IconButton(
           icon: Icon(
             Icons.keyboard_arrow_left,
             color: AppColors.kBlack,
           ),
+          onPressed: () => Navigator.pop(context),
         ),
         title: Text(
           "Chat Backup",
-          style: Theme.of(context).textTheme.title,
+          style: TextStyle(color: AppColors.kBlack),
         ),
-      ),
+      );
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
       body: SafeArea(
         child: CustomScrollView(
           slivers: <Widget>[
+            SliverPersistentHeader(
+              delegate: _SliverAppBarDelegate(appBar(context)),
+              pinned: true,
+            ),
+            SliverAppBar(
+              automaticallyImplyLeading: false,
+              expandedHeight: 90.0,
+              snap: true,
+              floating: true,
+              pinned: false,
+              centerTitle: true,
+              title: Theme(
+                data: ThemeData(
+                    primaryColor: AppColors.kGrey,
+                    accentColor: AppColors.kLightGrey),
+                child: TextField(
+                  decoration: InputDecoration(
+                    border: OutlineInputBorder(
+                        borderSide: new BorderSide(color: Colors.red)),
+                    contentPadding: EdgeInsets.symmetric(horizontal: 10),
+                    hintText: 'Search',
+                    suffixIcon: Icon(
+                      Icons.search,
+                      color: Colors.black,
+                    ),
+                  ),
+                ),
+              ),
+            ),
             SliverFillRemaining(
               hasScrollBody: false,
               child: Column(children: [
@@ -133,5 +163,50 @@ class ChatBackup extends StatelessWidget {
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
     );
+  }
+}
+
+class _SliverAppBarDelegate extends SliverPersistentHeaderDelegate {
+  _SliverAppBarDelegate(this.newAppbar, {this.searchController});
+  AppBar newAppbar;
+  TextEditingController searchController = TextEditingController();
+
+  @override
+  double get minExtent => newAppbar.preferredSize.height;
+  @override
+  double get maxExtent => newAppbar.preferredSize.height;
+
+  @override
+  Widget build(
+      BuildContext context, double shrinkOffset, bool overlapsContent) {
+    return newAppbar;
+    // return Container(
+    // child: Theme(
+    //   data: ThemeData(
+    //       primaryColor: AppColors.kGrey, accentColor: AppColors.kLightGrey),
+    //   child: TextField(
+    //     controller: searchController,
+    //     decoration: InputDecoration(
+    //       border: OutlineInputBorder(
+    //           borderSide: new BorderSide(color: Colors.red)),
+    //       contentPadding: EdgeInsets.symmetric(horizontal: 10),
+    //       hintText: 'Search',
+    //       suffixIcon: Icon(
+    //         Icons.search,
+    //         color: Colors.black,
+    //       ),
+    //     ),
+    //   ),
+    // ),
+    //   child: Text(
+    //     "HHHHHHHHHHHHHHHHH",
+    //     style: TextStyle(color: AppColors.kBlack),
+    //   ),
+    // );
+  }
+
+  @override
+  bool shouldRebuild(_SliverAppBarDelegate oldDelegate) {
+    return false;
   }
 }

@@ -4,8 +4,8 @@ import 'package:kayvo_flutter/elements/button.dart';
 import 'package:kayvo_flutter/utilities/styles.dart';
 import 'package:popup_menu/popup_menu.dart';
 
-class ChatBackup extends StatelessWidget {
-  const ChatBackup({Key key}) : super(key: key);
+class IChatBackup extends StatelessWidget {
+  const IChatBackup({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

@@ -3,14 +3,12 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:kayvo_flutter/utilities/styles.dart';
+import 'package:kayvo_flutter/elements/persistantHeader.dart';
 
 class ChatList extends StatelessWidget {
   const ChatList({Key key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
+  Widget appBars(BuildContext context) => AppBar(
+        elevation: 0,
         automaticallyImplyLeading: false,
         title: Text(
           "Chats",
@@ -53,36 +51,49 @@ class ChatList extends StatelessWidget {
             onPressed: () => Navigator.pushNamed(context, '/newChat'),
           )
         ],
-      ),
+      );
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
       body: SafeArea(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: <Widget>[
-            Padding(
-              padding: const EdgeInsets.all(16.0),
-              child: Theme(
+        child: CustomScrollView(
+          slivers: <Widget>[
+            SliverPersistentHeader(
+              delegate: _SliverAppBarDelegate(appBars(context)),
+              pinned: true,
+            ),
+            SliverAppBar(
+              automaticallyImplyLeading: false,
+              expandedHeight: 90.0,
+              snap: false,
+              floating: false,
+              pinned: false,
+              centerTitle: true,
+              title: Theme(
                 data: ThemeData(
                     primaryColor: AppColors.kGrey,
                     accentColor: AppColors.kLightGrey),
-                child: Container(
-                  height: MediaQuery.of(context).size.height * 0.07,
-                  child: TextField(
-                    decoration: InputDecoration(
-                      border: new OutlineInputBorder(
-                          borderSide: new BorderSide(color: Colors.red)),
-                      hintText: 'Search',
-                      contentPadding:
-                          EdgeInsets.symmetric(vertical: 5, horizontal: 8),
-                      suffixIcon: Icon(
-                        Icons.search,
-                        color: Colors.black,
-                      ),
+                child: TextField(
+                  decoration: InputDecoration(
+                    border: OutlineInputBorder(
+                        borderSide: new BorderSide(color: Colors.red)),
+                    contentPadding: EdgeInsets.symmetric(horizontal: 10),
+                    hintText: 'Search',
+                    suffixIcon: Icon(
+                      Icons.search,
+                      color: Colors.black,
                     ),
                   ),
                 ),
               ),
             ),
-            SlideableListTile()
+            SliverFillRemaining(
+              hasScrollBody: false,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: <Widget>[SlideableListTile()],
+              ),
+            ),
           ],
         ),
       ),
@@ -171,5 +182,28 @@ class SlideableListTile extends StatelessWidget {
         ),
       ],
     );
+  }
+}
+
+class _SliverAppBarDelegate extends SliverPersistentHeaderDelegate {
+  _SliverAppBarDelegate(
+    this.newAppbar,
+  );
+  AppBar newAppbar;
+
+  @override
+  double get minExtent => newAppbar.preferredSize.height;
+  @override
+  double get maxExtent => newAppbar.preferredSize.height;
+
+  @override
+  Widget build(
+      BuildContext context, double shrinkOffset, bool overlapsContent) {
+    return newAppbar;
+  }
+
+  @override
+  bool shouldRebuild(_SliverAppBarDelegate oldDelegate) {
+    return false;
   }
 }

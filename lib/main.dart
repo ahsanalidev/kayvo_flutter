@@ -6,10 +6,11 @@ import 'package:kayvo_flutter/screens/addNewNumber.dart';
 import 'package:kayvo_flutter/screens/addNumber.dart';
 import 'package:kayvo_flutter/screens/archieve_chat.dart';
 import 'package:kayvo_flutter/screens/backupData.dart';
-import 'package:kayvo_flutter/screens/blank.dart';
+import 'package:kayvo_flutter/screens/splashscreen.dart';
 import 'package:kayvo_flutter/screens/changeNumber.dart';
 import 'package:kayvo_flutter/screens/chat.dart';
 import 'package:kayvo_flutter/screens/chatBackup.dart';
+import 'package:kayvo_flutter/screens/chatBackupIcloud.dart';
 import 'package:kayvo_flutter/screens/chats.dart';
 import 'package:kayvo_flutter/screens/contactInfo.dart';
 import 'package:kayvo_flutter/screens/dataAndStorage.dart';
@@ -47,7 +48,7 @@ class MyApp extends StatelessWidget {
               case '/':
                 return CupertinoPageRoute(
                   fullscreenDialog: true,
-                  builder: (_) => SplashScreen(),
+                  builder: (_) => MySplashScreen(),
                   settings: settings,
                 );
               case '/addNumber':
@@ -181,7 +182,7 @@ class MyApp extends StatelessWidget {
               default:
                 return CupertinoPageRoute(
                   fullscreenDialog: true,
-                  builder: (_) => SplashScreen(),
+                  builder: (_) => MySplashScreen(),
                   settings: settings,
                 );
             }
@@ -190,7 +191,7 @@ class MyApp extends StatelessWidget {
               case '/':
                 return CupertinoPageRoute(
                   fullscreenDialog: true,
-                  builder: (_) => SplashScreen(),
+                  builder: (_) => MySplashScreen(),
                   settings: settings,
                 );
               case '/addNumber':
@@ -321,7 +322,7 @@ class MyApp extends StatelessWidget {
               default:
                 return CupertinoPageRoute(
                   fullscreenDialog: true,
-                  builder: (_) => SplashScreen(),
+                  builder: (_) => MySplashScreen(),
                   settings: settings,
                 );
             }
