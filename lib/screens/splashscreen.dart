@@ -11,38 +11,53 @@ main() {
 
 class MySplashScreen extends StatelessWidget {
   Widget build(BuildContext context) {
-    return
-
-        //  Scaffold(
-        //   body: Center(
-        //     child: RaisedButton(
-        //       child: Text('Splash Screen'),
-        //       onPressed: () {
-        //         Navigator.of(context).push(_createRoute());
-        //       },
-        //     ),
-        //   ),
-        // );
-
-        SplashScreen.navigate(
+    return SplashScreen.callback(
       backgroundColor: AppColors.kWhite,
       name: 'assets/kayvo.flr',
-      next: (_) => Welcome(),
-      until: () => Future.delayed(Duration(seconds: 2)),
-      startAnimation: '1',
-      // transitionsBuilder: (context, animation, secondaryAnimation, child) {
-      //   var begin = Offset(0.0, 1.0);
-      //   var end = Offset.zero;
-      //   var curve = Curves.linearToEaseOut;
-
-      //   var tween =
-      //       Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
-
-      //   return SlideTransition(
-      //     position: animation.drive(tween),
-      //     child: child,
-      //   );
-      // },
+      onSuccess: (context) {
+        Navigator.of(context).pushReplacement(_createRoute());
+      },
+      loopAnimation: '1',
+      until: () => Future.delayed(Duration(seconds: 3)),
+      endAnimation: '1',
+      onError: (error, stacktrace) {
+        print("Error");
+      },
     );
+    //  Scaffold(
+    //   body: Center(
+    //     child: RaisedButton(
+    //       child: Text('Splash Screen'),
+    //       onPressed: () {
+    //         Navigator.of(context).push(_createRoute());
+    //       },
+    //     ),
+    //   ),
+    // );
+
+    //     SplashScreen.navigate(
+    //   name: 'intro.flr',
+    //   next: (context).push(_createRoute()),
+    //   until: () => Future.delayed(Duration(seconds: 5)),
+    //   startAnimation: '1',
+    // );
   }
+}
+
+Route _createRoute() {
+  return PageRouteBuilder(
+    pageBuilder: (context, animation, secondaryAnimation) => Welcome(),
+    transitionsBuilder: (context, animation, secondaryAnimation, child) {
+      var begin = Offset(0.0, 1.0);
+      var end = Offset.zero;
+      var curve = Curves.linearToEaseOut;
+
+      var tween = Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
+
+      return SlideTransition(
+        position: animation.drive(tween),
+        child: child,
+      );
+    },
+  );
 }
