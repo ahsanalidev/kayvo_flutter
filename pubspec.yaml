@@ -68,6 +68,9 @@ flutter:
     - assets/alerts_not.png
     - assets/banners_not_active.png
     - assets/none_not.png
+    - assets/alerts_not.svg
+    - assets/banners_not_active.svg
+    - assets/none_not.svg
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
   # For details regarding adding assets from package dependencies, see

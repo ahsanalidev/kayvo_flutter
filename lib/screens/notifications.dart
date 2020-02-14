@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:kayvo_flutter/utilities/styles.dart';
 
 class Notifications extends StatefulWidget {
@@ -13,6 +14,7 @@ class _NotificationsState extends State<Notifications> {
   bool switchValue2 = false;
   bool switchValue3 = false;
 
+  List<bool> isSelected = [false, false, false];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -61,15 +63,20 @@ class _NotificationsState extends State<Notifications> {
                     "Alert Style",
                   ),
                 ),
-                Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: <Widget>[
-                      Column(
+                ToggleButtons(
+                  disabledBorderColor: Colors.transparent,
+                  children: <Widget>[
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 16),
+                      child: Column(
                         children: <Widget>[
-                          SizedBox(
-                            child: Image.asset('assets/none_not.png'),
+                          SvgPicture.asset(
+                            'assets/none_not.svg',
                             height: 120,
                             width: 60,
+                            color: isSelected[0]
+                                ? AppColors.kGrey
+                                : AppColors.kLightRed,
                           ),
                           Padding(
                             padding: const EdgeInsets.all(8.0),
@@ -83,12 +90,18 @@ class _NotificationsState extends State<Notifications> {
                           ),
                         ],
                       ),
-                      Column(
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 16),
+                      child: Column(
                         children: <Widget>[
-                          SizedBox(
-                            child: Image.asset('assets/banners_not_active.png'),
+                          SvgPicture.asset(
+                            'assets/banners_not_active.svg',
                             height: 120,
                             width: 60,
+                            color: isSelected[1]
+                                ? AppColors.kGrey
+                                : AppColors.kLightRed,
                           ),
                           Padding(
                             padding: const EdgeInsets.all(8.0),
@@ -102,12 +115,18 @@ class _NotificationsState extends State<Notifications> {
                           ),
                         ],
                       ),
-                      Column(
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 16),
+                      child: Column(
                         children: <Widget>[
-                          SizedBox(
-                            child: Image.asset('assets/alerts_not.png'),
+                          SvgPicture.asset(
+                            'assets/alerts_not.svg',
                             height: 120,
                             width: 60,
+                            color: isSelected[2]
+                                ? AppColors.kGrey
+                                : AppColors.kLightRed,
                           ),
                           Padding(
                             padding: const EdgeInsets.all(8.0),
@@ -121,7 +140,15 @@ class _NotificationsState extends State<Notifications> {
                           ),
                         ],
                       ),
-                    ]),
+                    ),
+                  ],
+                  onPressed: (int index) {
+                    setState(() {
+                      isSelected[index] = !isSelected[index];
+                    });
+                  },
+                  isSelected: isSelected,
+                ),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 16),
                   child: Divider(),

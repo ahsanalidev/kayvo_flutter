@@ -53,32 +53,40 @@ class _ChatsState extends State<Chats> {
                         ),
                       ),
                       ListTile(
-                          title: Padding(
-                            padding: const EdgeInsets.only(left: 8.0),
-                            child: Text(
-                              "Save to Camera Roll",
-                              style: Theme.of(context).textTheme.subhead,
-                            ),
+                        title: Padding(
+                          padding: const EdgeInsets.only(left: 8.0),
+                          child: Text(
+                            "Save to Camera Roll",
+                            style: Theme.of(context).textTheme.subhead,
                           ),
-                          subtitle: Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: Text(
-                              "Automatically save photos and videos you recieve to your Camera roll",
-                              style: Theme.of(context).textTheme.subtitle,
-                            ),
+                        ),
+                        subtitle: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Text(
+                            "Automatically save photos and videos you recieve to your Camera roll",
+                            style: Theme.of(context).textTheme.subtitle,
                           ),
-                          contentPadding: const EdgeInsets.all(16),
-                          trailing: Switch(
-                            value: switchValue,
-                            activeColor: AppColors.kRed,
-                            onChanged: (value) {
-                              setState(
-                                () {
-                                  switchValue = value;
-                                },
-                              );
+                        ),
+                        contentPadding: const EdgeInsets.all(16),
+                        trailing: Switch(
+                          value: switchValue,
+                          activeColor: AppColors.kRed,
+                          onChanged: (value) {
+                            setState(
+                              () {
+                                switchValue = value;
+                              },
+                            );
+                          },
+                        ),
+                        onTap: () => {
+                          setState(
+                            () {
+                              switchValue = !switchValue;
                             },
-                          )),
+                          )
+                        },
+                      ),
                       Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 24.0),
                         child: Divider(

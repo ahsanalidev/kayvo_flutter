@@ -19,7 +19,7 @@ class ProfilePhoto extends StatelessWidget {
           },
         ),
         title: Text(
-          "Backup Data",
+          "Profile Photo",
           style: Theme.of(context).textTheme.title,
         ),
       ),
