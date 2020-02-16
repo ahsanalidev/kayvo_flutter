@@ -21,11 +21,11 @@ class Box extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ControlledAnimation(
-      duration: Duration(milliseconds: 1000),
+      duration: Duration(milliseconds: 300),
       tween: Tween(begin: 0.0, end: 52.0),
       builder: (context, height) {
         return ControlledAnimation(
-          duration: Duration(milliseconds: 2500),
+          duration: Duration(milliseconds: 1000),
           delay: Duration(milliseconds: 500),
           tween: Tween(
               begin: 2.0, end: (deviceWidth(context) * 0.9).roundToDouble()),
@@ -34,7 +34,7 @@ class Box extends StatelessWidget {
               decoration: boxDecoration,
               width: width,
               height: height,
-              child: isEnoughRoomForTypewriter(width)
+              child: isEnoughRoomForTypewriter(width, height)
                   ? TypewriterText(text, onPressed)
                   : Container(),
             );
@@ -44,7 +44,7 @@ class Box extends StatelessWidget {
     );
   }
 
-  isEnoughRoomForTypewriter(width) => width > 70;
+  isEnoughRoomForTypewriter(width, height) => width > 70 && height > 50;
 }
 
 class TypewriterText extends StatelessWidget {
@@ -55,41 +55,34 @@ class TypewriterText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ControlledAnimation(
-        duration: Duration(milliseconds: 3000),
-        delay: Duration(milliseconds: 2000),
-        tween: IntTween(begin: 0, end: text.length),
-        builder: (context, textLength) {
-          return FlatButton(
-            shape:
-                RoundedRectangleBorder(borderRadius: BorderRadius.circular(5)),
-            color: AppColors.kRed,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: <Widget>[
-                SizedBox(
-                  width: deviceWidth(context) * 0.08,
-                ),
-                Text(
-                  text,
-                  style: Theme.of(context)
-                      .textTheme
-                      .subtitle
-                      .copyWith(color: AppColors.kWhite),
-                ),
-                SizedBox(
-                  width: deviceWidth(context) * 0.02,
-                ),
-                Icon(
-                  Icons.arrow_forward,
-                  color: Colors.white,
-                  size: deviceWidth(context) * 0.06,
-                ),
-              ],
-            ),
-            onPressed: onPressed,
-          );
-        });
+    return FlatButton(
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5)),
+      color: AppColors.kRed,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: <Widget>[
+          SizedBox(
+            width: deviceWidth(context) * 0.08,
+          ),
+          Text(
+            text,
+            style: Theme.of(context)
+                .textTheme
+                .subtitle
+                .copyWith(color: AppColors.kWhite),
+          ),
+          SizedBox(
+            width: deviceWidth(context) * 0.02,
+          ),
+          Icon(
+            Icons.arrow_forward,
+            color: Colors.white,
+            size: deviceWidth(context) * 0.06,
+          ),
+        ],
+      ),
+      onPressed: onPressed,
+    );
   }
 }

@@ -41,16 +41,10 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
         theme: kTheme,
-        initialRoute: '/',
+        home: MySplashScreen(),
         onGenerateRoute: (RouteSettings settings) {
           if (Platform.isIOS) {
             switch (settings.name) {
-              case '/':
-                return CupertinoPageRoute(
-                  fullscreenDialog: true,
-                  builder: (_) => MySplashScreen(),
-                  settings: settings,
-                );
               case '/addNumber':
                 return CupertinoPageRoute(
                   builder: (_) => AddNumber(),
@@ -182,18 +176,12 @@ class MyApp extends StatelessWidget {
               default:
                 return CupertinoPageRoute(
                   fullscreenDialog: true,
-                  builder: (_) => MySplashScreen(),
+                  builder: (_) => NavBar(),
                   settings: settings,
                 );
             }
           } else {
             switch (settings.name) {
-              case '/':
-                return CupertinoPageRoute(
-                  fullscreenDialog: true,
-                  builder: (_) => MySplashScreen(),
-                  settings: settings,
-                );
               case '/addNumber':
                 return MaterialPageRoute(
                   builder: (_) => AddNumber(),
@@ -322,7 +310,7 @@ class MyApp extends StatelessWidget {
               default:
                 return CupertinoPageRoute(
                   fullscreenDialog: true,
-                  builder: (_) => MySplashScreen(),
+                  builder: (_) => NavBar(),
                   settings: settings,
                 );
             }

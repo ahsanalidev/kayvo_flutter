@@ -9,38 +9,50 @@ main() {
   ));
 }
 
-class MySplashScreen extends StatelessWidget {
-  Widget build(BuildContext context) {
-    return SplashScreen.callback(
-      backgroundColor: AppColors.kWhite,
-      name: 'assets/kayvo.flr',
-      onSuccess: (context) {
-        Navigator.of(context).pushReplacement(_createRoute());
-      },
-      loopAnimation: '1',
-      until: () => Future.delayed(Duration(seconds: 3)),
-      endAnimation: '1',
-      onError: (error, stacktrace) {
-        print("Error");
-      },
-    );
-    //  Scaffold(
-    //   body: Center(
-    //     child: RaisedButton(
-    //       child: Text('Splash Screen'),
-    //       onPressed: () {
-    //         Navigator.of(context).push(_createRoute());
-    //       },
-    //     ),
-    //   ),
-    // );
+class MySplashScreen extends StatefulWidget {
+  @override
+  _MySplashScreenState createState() => _MySplashScreenState();
+}
 
-    //     SplashScreen.navigate(
-    //   name: 'intro.flr',
-    //   next: (context).push(_createRoute()),
-    //   until: () => Future.delayed(Duration(seconds: 5)),
-    //   startAnimation: '1',
-    // );
+class _MySplashScreenState extends State<MySplashScreen> {
+  Widget build(BuildContext context) {
+    return Builder(
+      builder: (context) => SplashScreen.callback(
+        backgroundColor: AppColors.kWhite,
+        name: 'assets/kayvo.flr',
+        width: 2000,
+        height: 1400,
+        alignment: Alignment.center,
+        onSuccess: (_) {
+          Navigator.of(context).pushReplacement(
+            PageRouteBuilder(
+              pageBuilder: (context, animation, secondaryAnimation) =>
+                  Welcome(),
+              transitionDuration: Duration(seconds: 1),
+              transitionsBuilder:
+                  (context, animation, secondaryAnimation, child) {
+                var begin = Offset(0.0, 1.0);
+                var end = Offset.zero;
+                var curve = Curves.linearToEaseOut;
+
+                var tween = Tween(begin: begin, end: end)
+                    .chain(CurveTween(curve: curve));
+
+                return SlideTransition(
+                  position: animation.drive(tween),
+                  child: child,
+                );
+              },
+            ),
+          );
+        },
+        startAnimation: 'Logo',
+        until: () => Future.delayed(Duration(seconds: 1)),
+        onError: (error, stacktrace) {
+          print("Error");
+        },
+      ),
+    );
   }
 }
 
